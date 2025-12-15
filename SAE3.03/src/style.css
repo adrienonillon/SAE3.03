@@ -104,46 +104,78 @@ body { font-family: 'Montserrat', sans-serif; }
 /* --- SLIDE 4 : ARMOIRE SLIDE DROITE + VÊTEMENTS CACHÉS --- */
 #slide-4 { background-color: var(--jaune); color: var(--bleu); display: flex; flex-direction: row; }
 .split-col { width: 50%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; }
-.text-col-left { justify-content: flex-end; padding-right: 3rem; }
-.wardrobe-text-wrapper { text-align: right; opacity: 0; transform: translateX(-30px); }
-.big-number-alt { font-size: 8rem; font-weight: 900; line-height: 1; margin: 0; color: var(--bleu); }
-.big-desc-alt { font-size: 2rem; font-weight: bold; margin-top: 1rem; color: var(--bleu); }
+.text-col-left { justify-content: flex-start; padding-left: 12rem; }
+.wardrobe-text-wrapper { text-align: left; opacity: 0; transform: translateX(-30px); }
+.big-number-alt { display: flex; align-items: baseline; gap: 0.5rem; line-height: 1; margin: 0; }
+.number-50 { font-family: var(--font-primary); font-size: 18rem; font-weight: 900; color: var(--rouge); }
+.percent { font-family: var(--font-secondary); font-size: 3.5rem; font-weight: 700; color: var(--bleu); }
+.big-desc-alt { font-family: var(--font-secondary); font-size: 3.5rem; font-weight: 700; margin-top: 1rem; color: var(--bleu); }
 
-.single-wardrobe-container { position: relative; width: 400px; height: 500px; }
+.single-wardrobe-container { position: relative; width: 550px; height: 650px; overflow: hidden; }
 .wardrobe-door-top, .wardrobe-door-bottom { position: absolute; left: 0; width: 100%; height: 50%; overflow: hidden; z-index: 10; }
 .wardrobe-door-top { top: 0; }
 .wardrobe-door-bottom { bottom: 0; }
 .wardrobe-img-crop { position: absolute; left: 0; width: 100%; height: 200%; object-fit: contain; }
 .wardrobe-img-crop.top { top: 0; object-position: top center; }
 .wardrobe-img-crop.bottom { bottom: 0; object-position: bottom center; }
-/* Intérieur caché derrière le bas */
-.wardrobe-interior-hidden { position: absolute; bottom: 0; left: 10%; width: 80%; height: 45%; z-index: 5; display: flex; justify-content: center; align-items: flex-end; overflow: hidden; }
-.clothes-pile { width: 80px; position: absolute; bottom: -100px; /* Hors du cadre */ }
+/* Vêtements dans le haut avec espacement */
+.wardrobe-interior-hidden { position: absolute; top: 50%; left: 0; width: 100%; height: 50%; z-index: 5; display: flex; justify-content: center; align-items: flex-start; overflow: visible; padding-top: 2rem; gap: 2rem; }
+.clothes-pile { width: 100px; position: absolute; top: -150px; }
+.clothes-pile.c1 { left: 32%; transform: translateX(-50%); }
+.clothes-pile.c2 { left: 50%; transform: translateX(-50%); }
+.clothes-pile.c3 { left: 70%; transform: translateX(-50%); }
 
 
 /* --- SLIDE 5 : GRAPHIQUE BARRES HAUTES + ICÔNES --- */
 #slide-5 { background-color: var(--vert); color: var(--jaune); align-items: flex-start; padding: 5vw; }
 .chart-container { width: 100%; height: 90%; display: flex; flex-direction: column; }
-.chart-title { font-size: 3rem; font-weight: 900; margin-bottom: 2rem; max-width: 500px; text-align: left; }
-.bars-wrapper { display: flex; align-items: flex-end; justify-content: space-around; height: 100%; width: 100%; }
-.chart-bar { width: 20%; position: relative; display: flex; justify-content: center; align-items: flex-end; height: 0%; }
-/* Correction des étiquettes pour éviter les trous */
+.chart-title { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 3rem; max-width: 800px; text-align: left; }
+.big-four { font-family: var(--font-primary); font-size: 18rem; font-weight: 900; color: var(--rouge); line-height: 1; }
+.title-text { font-family: var(--font-secondary); font-size: 3.5rem; font-weight: 700; color: var(--jaune); line-height: 1.2; }
+.title-text sup { font-size: 3.5rem; }
+.bars-wrapper { display: flex; align-items: flex-end; justify-content: space-around; height: 100%; width: 100%; gap: 2rem; }
+.chart-bar { width: 22%; position: relative; display: flex; justify-content: center; align-items: flex-end; height: 0%; }
+
 .tag-shape.fixed-tag { 
     width: 100%; height: 100%; background-color: var(--jaune); 
-    /* Forme simplifiée pour ne pas couper le texte */
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    border-top-left-radius: 20px; border-top-right-radius: 20px;
-    display: flex; flex-direction: column; align-items: center; padding-top: 3rem; color: var(--rouge); font-weight: bold;
+    border-top-left-radius: 30px; border-top-right-radius: 30px;
+    display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+    padding: 2rem 1rem 2rem 1rem;
     position: relative;
 }
-.tag-shape.fixed-tag::before { content: ''; position: absolute; top: 15px; width: 25px; height: 25px; background: var(--vert); border-radius: 50%; }
-.tag-num { font-size: 4rem; font-weight: 900; line-height: 1; }
-.tag-label { font-size: 1.5rem; margin-top: 0.5rem; }
-.tag-icon { width: 70px; margin-top: 2rem; }
-.red-icon { fill: var(--rouge); } /* Si SVG inline, sinon utiliser filter */
 
-/* Hauteurs cibles augmentées */
-.bar-1 { --target-height: 100%; } .bar-2 { --target-height: 80%; } .bar-3 { --target-height: 60%; } .bar-4 { --target-height: 50%; }
+.tag-circle {
+    width: 50px; height: 50px;
+    background-color: var(--bleu);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-primary);
+    font-size: 2rem; font-weight: 900;
+    color: var(--jaune);
+    flex-shrink: 0;
+}
+
+.tag-label { 
+    font-family: var(--font-primary);
+    font-size: 2rem; font-weight: 900;
+    color: var(--rouge);
+    text-align: center;
+    line-height: 1.2;
+    flex-grow: 1;
+    display: flex; align-items: center;
+}
+
+.tag-icon { 
+    width: 80px; height: auto;
+    flex-shrink: 0;
+    opacity: 0;
+}
+
+/* Hauteurs des barres */
+.bar-1 { --target-height: 50%; height: 50%; } 
+.bar-2 { --target-height: 70%; height: 70%; } 
+.bar-3 { --target-height: 85%; height: 85%; } 
+.bar-4 { --target-height: 100%; height: 100%; }
 
 
 /* --- SLIDE 6 : HORLOGE ESPACÉE --- */
