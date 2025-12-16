@@ -558,140 +558,152 @@ body {
 }
 
 /* ==========================================================================
-   SLIDE 6 - WORK CONDITIONS (Full Page Layout)
+   SLIDE 6 - CORRECTION ESPACEMENTS & "à"
    ========================================================================== */
 
 #slide-6 {
-  background-color: var(--vert);
-  color: var(--jaune);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* On commence en haut */
-  padding-top: 5vh;
+    background-color: var(--vert);
+    color: var(--jaune);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
 }
 
 #slide-6 .slide__title {
-  margin-bottom: 5vh;
-  text-align: center;
-  width: 100%;
+    /* Augmentation de l'espace sous le titre */
+    margin-bottom: 12vh; 
+    margin-top: 0;
+    text-align: center;
+    width: 100%;
 }
 
-/* Grille principale qui prend toute la largeur */
-.work-grid-full {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* 50% Gauche, 50% Droite */
-  width: 100%;
-  height: 70%; /* Prend le reste de la hauteur */
-  padding: 0 5vw; /* Marges sur les côtés */
-  gap: 2rem;
+/* Conteneur global */
+.work-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start; /* Aligne le haut des colonnes */
+    gap: 8rem;
+    width: 100%;
+    max-width: 1100px;
+    /* On retire la hauteur fixe pour laisser le contenu dicter sa taille */
+    height: auto; 
+}
+
+/* --- CONFIGURATION DES COLONNES --- */
+.col-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* CHANGEMENT ICI : On ne pousse plus aux extrémités. 
+       On utilise flex-start + gap pour rapprocher les éléments. */
+    justify-content: flex-start; 
+    gap: 4rem; /* Espace fixe entre l'horloge et le texte en dessous */
 }
 
 /* --- COLONNE GAUCHE --- */
-.col-left {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centré horizontalement dans sa colonne */
-  justify-content: flex-start;
-}
-
-.clock-svg-container {
-  width: 300px;
-  height: 300px;
-  margin-bottom: 2rem;
+.clock-wrapper {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    flex-shrink: 0;
 }
 
 #clock-svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
 }
 
-/* Texte "Quelques centimes" sous l'horloge */
 .cents-text {
-  text-align: center;
-  color: var(--jaune);
-  font-size: 3rem; /* Ajustez selon besoin */
-  line-height: 1.1;
-  margin-top: 1rem;
+    text-align: center;
+    line-height: 1.1;
+    /* Le gap du parent gère l'espacement maintenant */
 }
 
-.cents-highlight {
-  color: var(--rouge);
-  display: block;
-  font-size: 4rem;
+.cents-line-1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    white-space: nowrap;
 }
+
+.cents-line-2 {
+    font-size: 2.8rem;
+    font-weight: 900;
+}
+
+.text-red { color: var(--rouge); text-transform: uppercase; }
+.text-yellow { color: var(--jaune); }
+.font-omnes { font-family: "Omnes", var(--font-secondary), sans-serif !important; font-weight: 800; }
+.font-novaro { font-family: "Novaro", var(--font-primary), sans-serif; font-weight: 900; }
+
 
 /* --- COLONNE DROITE --- */
 .col-right {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centré horizontalement dans sa colonne */
-  justify-content: flex-start;
+    /* On aligne optiquement le texte 75h avec l'horloge */
+    padding-top: 2rem; 
+    gap: 6rem; /* Espace entre 75h et les pièces */
 }
 
-/* Bloc texte 75-80 */
-.work__hours {
-  text-align: center;
-  margin-bottom: 4rem; /* Espace avant les pièces */
+.hours-block {
+    text-align: left;
 }
 
-/* Style Police Novaro 200px */
-.font-novaro {
-  font-family: "Novaro", var(--font-primary), sans-serif;
-  font-weight: 900;
+.hours-big {
+    font-size: 9rem;
+    color: var(--rouge);
+    line-height: 0.8;
+    white-space: nowrap;
+    display: flex; /* Flex pour bien aligner le "à" */
+    align-items: flex-start; /* Aligne tout en haut */
 }
 
-.work__number-group {
-  font-size: 12.5rem; /* ~200px */
-  color: var(--rouge);
-  line-height: 0.8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+/* CORRECTION DU "à" */
+.hours-small {
+    font-size: 4rem;
+    color: var(--jaune);
+    margin: 0 1rem; /* Espace autour du à */
+    margin-top: 10px; /* Petit ajustement pour qu'il ne soit pas trop collé au plafond */
+    line-height: 1;
 }
 
-.small-a {
-  font-size: 4rem;
-  color: var(--jaune);
-  font-family: var(--font-secondary); /* "à" en police normale */
-  vertical-align: middle;
+.hours-label {
+    font-size: 3.5rem;
+    color: var(--jaune);
+    text-transform: uppercase;
+    margin-left: 1rem;
+    align-self: center; /* HEURES reste centré verticalement par rapport aux chiffres */
 }
 
-.work__sublabel {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: var(--jaune);
-  text-transform: uppercase;
-  margin-top: 1rem;
+.hours-sub {
+    font-size: 3rem;
+    color: var(--jaune);
+    font-weight: bold;
+    margin-top: 0.5rem;
+    text-align: center;
 }
 
-/* Conteneur Pièces */
-.coins-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+/* Pièces */
+.coins-pile {
+    position: relative;
+    width: 250px;
+    height: 150px;
 }
 
-.coins__pile {
-  position: relative;
-  width: 250px; /* Pile plus large */
-  height: 150px;
+.coin {
+    position: absolute;
+    width: 90px;
+    opacity: 0;
+    filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.2));
 }
 
-.coins__item {
-  position: absolute;
-  width: 90px; /* Pièces un peu plus grosses */
-  opacity: 0;
-  filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.2));
-}
-
-/* Positionnement des pièces */
-.coins__item--1 { bottom: 0; left: 20%; z-index: 5; }
-.coins__item--2 { bottom: 15px; left: 50%; z-index: 4; transform: translateX(-50%); }
-.coins__item--3 { bottom: 30px; left: 30%; z-index: 3; }
-.coins__item--4 { bottom: 45px; left: 60%; z-index: 2; }
-.coins__item--5 { bottom: 10px; left: 70%; z-index: 1; }
+.coin--1 { bottom: 0; left: 10%; z-index: 5; }
+.coin--2 { bottom: 15px; left: 50%; transform: translateX(-50%); z-index: 4; }
+.coin--3 { bottom: 30px; left: 30%; z-index: 3; }
+.coin--4 { bottom: 45px; left: 60%; z-index: 2; }
+.coin--5 { bottom: 10px; left: 80%; z-index: 1; }
 
 /* ==========================================================================
    SLIDE 7 - WATER

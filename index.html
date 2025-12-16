@@ -175,38 +175,29 @@
         <section class="slide" id="slide-6">
             <h2 class="slide__title">Cadence de travail infernale</h2>
 
-            <div class="work-grid-full">
+            <div class="work-container">
 
-                <div class="grid-col col-left">
-
-                    <div class="clock-svg-container">
-                        <svg id="clock-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 329.63 329.64">
-                            <g id="clock-bg">
+                <div class="col-side col-left">
+                    <div class="clock-wrapper">
+                        <svg id="clock-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 330">
+                            <g id="clock-face">
                                 <path
                                     d="M168.82,21.71v.37c77.01,2.11,138.79,65.21,138.79,142.74,0,2.24-.05,4.47-.16,6.68h.08c.12-2.34.18-4.69.18-7.06,0-77.55-61.84-140.67-138.89-142.73ZM22.02,164.82c0,78.86,63.93,142.8,142.79,142.8,61.3,0,113.57-38.62,133.82-92.86,0,0-130.63-40.24-131.86-43.26l2.04-149.42c-1.33-.04-2.66-.06-4-.06-78.86,0-142.79,63.93-142.79,142.8Z"
-                                    fill="#ddb147" />
-                                <path
-                                    d="M164.81,0C73.79,0,0,73.79,0,164.82s73.79,164.82,164.81,164.82,164.82-73.8,164.82-164.82S255.84,0,164.81,0ZM298.63,214.76c-20.25,54.24-72.52,92.86-133.82,92.86-78.86,0-142.79-63.94-142.79-142.8S85.95,22.02,164.81,22.02c1.34,0,2.67.02,4,.06v-.37c77.06,2.06,138.9,65.18,138.9,142.73,0,2.37-.06,4.72-.18,7.06h-.08c-.69,15.15-3.75,29.69-8.81,43.25h-.01Z"
                                     fill="#fbd236" />
-                                <path
-                                    d="M298.63,214.76c-20.25,54.24-72.52,92.86-133.82,92.86-78.86,0-142.79-63.94-142.79-142.8S85.95,22.02,164.81,22.02c1.34,0,2.67.02,4,.06l-2.04,149.42c1.23,3.02,131.86,43.26,131.86,43.26Z"
-                                    fill="#ebebd3" />
-                                <path
-                                    d="M307.61,164.82c0,2.24-.05,4.47-.16,6.68-.69,15.15-3.75,29.69-8.81,43.25h-.01s-130.63-40.23-131.86-43.25l2.04-149.42c77.02,2.11,138.8,65.21,138.8,142.74Z"
-                                    fill="#e6503c" />
-                                <path
-                                    d="M307.71,164.44c0,2.37-.06,4.72-.18,7.06h-.08c.11-2.21.16-4.44.16-6.68,0-77.53-61.78-140.63-138.8-142.74v-.37c77.06,2.06,138.9,65.18,138.9,142.73Z"
-                                    fill="#312782" />
-                                <line x1="165.07" y1="262.41" x2="164.56" y2="299.69" fill="none" stroke="#e6503c"
-                                    stroke-miterlimit="10" stroke-width="4" />
-                                <line x1="168.23" y1="31.72" x2="167.72" y2="69" fill="none" stroke="#fbd236"
-                                    stroke-miterlimit="10" stroke-width="4" />
-                                <line x1="30" y1="171.5" x2="67.28" y2="171.5" fill="none" stroke="#e6503c"
-                                    stroke-miterlimit="10" stroke-width="4" />
-                                <line x1="262.86" y1="171.51" x2="300.14" y2="171.51" fill="none" stroke="#fbd236"
-                                    stroke-miterlimit="10" stroke-width="4" />
+
+                                <circle cx="165" cy="165" r="142" fill="#ebebd3" />
+
+                                <circle class="clock-pie" cx="165" cy="165" r="71" fill="none" stroke="#e6503c"
+                                    stroke-width="142" stroke-dasharray="446" stroke-dashoffset="446"
+                                    transform="rotate(-90 165 165)" />
+
+                                <line x1="165" y1="262" x2="165" y2="300" stroke="#e6503c" stroke-width="4" />
+                                <line x1="165" y1="31" x2="165" y2="69" stroke="#e6503c" stroke-width="4" />
+                                <line x1="30" y1="165" x2="67" y2="165" stroke="#e6503c" stroke-width="4" />
+                                <line x1="262" y1="165" x2="300" y2="165" stroke="#e6503c" stroke-width="4" />
                             </g>
-                            <g id="hands" transform="translate(164.8, 164.8)">
+
+                            <g id="hands" transform="translate(165, 165)">
                                 <line class="hand-hour" x1="0" y1="0" x2="0" y2="-60" stroke="#312782" stroke-width="8"
                                     stroke-linecap="round" />
                                 <line class="hand-minute" x1="0" y1="0" x2="0" y2="-110" stroke="#e6503c"
@@ -216,31 +207,32 @@
                         </svg>
                     </div>
 
-                    <div class="cents-text font-novaro">
-                        <span class="cents-highlight">QUELQUES</span> centimes<br>par vêtement
+                    <div class="cents-text font-omnes">
+                        <div class="cents-line-1">
+                            <span class="text-red">QUELQUES</span> <span class="text-yellow">centimes</span>
+                        </div>
+                        <div class="cents-line-2 text-yellow">
+                            par vêtements
+                        </div>
                     </div>
-
                 </div>
 
-                <div class="grid-col col-right">
-
-                    <div class="work__hours">
-                        <div class="work__number-group font-novaro">
-                            75 <span class="small-a">à</span> 80
+                <div class="col-side col-right">
+                    <div class="hours-block">
+                        <div class="hours-big font-novaro">
+                            75 <span class="hours-small font-omnes">à</span> 80 <span
+                                class="hours-label font-omnes">HEURES</span>
                         </div>
-                        <div class="work__sublabel">HEURES par semaine</div>
+                        <div class="hours-sub font-omnes">par semaine</div>
                     </div>
 
-                    <div class="coins-container">
-                        <div class="coins__pile">
-                            <img src="./piece.svg" class="coins__item coins__item--1">
-                            <img src="./piece.svg" class="coins__item coins__item--2">
-                            <img src="./piece.svg" class="coins__item coins__item--3">
-                            <img src="./piece.svg" class="coins__item coins__item--4">
-                            <img src="./piece.svg" class="coins__item coins__item--5">
-                        </div>
+                    <div class="coins-pile">
+                        <img src="./piece.svg" class="coin coin--1">
+                        <img src="./piece.svg" class="coin coin--2">
+                        <img src="./piece.svg" class="coin coin--3">
+                        <img src="./piece.svg" class="coin coin--4">
+                        <img src="./piece.svg" class="coin coin--5">
                     </div>
-
                 </div>
 
             </div>

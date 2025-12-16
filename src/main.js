@@ -179,36 +179,53 @@ function setupScrollFlow() {
     "slide5-anim+=0.5"
   );
 
-  // Slide 6: Horloge et pièces tombantes
+// Slide 6: Horloge et pièces tombantes
   tl.to(container, { x: "-300vw", y: "-300vh", ease: "none" });
   tl.addLabel("slide6-anim");
 
-  // Animation de l'horloge 
+  const clockDuration = 3; // Durée commune pour la synchronisation
+
+  // 1. Aiguille des minutes (Tourne vite)
   tl.to(
     ".hand-minute",
-    {
-      rotation: 720, // 2 tours complets
-      duration: 2,
-      ease: "none",
-      transformOrigin: "bottom center", // Pivote autour du bas de la ligne 
+    { 
+        rotation: 720, // 2 tours
+        duration: clockDuration, 
+        ease: "power1.inOut", 
+        transformOrigin: "bottom center" 
     },
     "slide6-anim"
   );
 
+  // 2. Aiguille des heures (Petite aiguille)
+  // Elle avance un peu (disons de 12h à 4h = 120 degrés environ)
   tl.to(
     ".hand-hour",
-    {
-      rotation: 200, // Avance partielle
-      duration: 2,
-      ease: "none",
-      transformOrigin: "bottom center",
+    { 
+        rotation: 120, 
+        duration: clockDuration, 
+        ease: "power1.inOut", 
+        transformOrigin: "bottom center" 
+    },
+    "slide6-anim"
+  );
+
+  // 3. Remplissage rouge (Pie Chart)
+  // IMPORTANT : Doit avoir la MEME durée et le MEME easing que l'aiguille des heures
+  // 446 est la circonférence totale. On enlève un tiers pour faire ~120 degrés.
+  tl.to(
+    ".clock-pie", 
+    { 
+        strokeDashoffset: 300, // On arrête le remplissage coordonné avec l'aiguille
+        duration: clockDuration, 
+        ease: "power1.inOut" 
     },
     "slide6-anim"
   );
 
   // Animation des pièces qui tombent
   tl.fromTo(
-    ".coins__item",
+    ".coin",
     { y: -600, opacity: 0, rotation: -180 },
     {
       y: 0,
@@ -216,10 +233,11 @@ function setupScrollFlow() {
       rotation: 0,
       duration: 1.2,
       ease: "bounce.out",
-      stagger: 0.15, // Délai entre chaque pièce
+      stagger: 0.15,
     },
-    "slide6-anim+=0.2"
+    "slide6-anim+=0.5"
   );
+
   // Slide 7: Remplissage d'eau
   tl.to(container, { x: "-300vw", y: "-400vh", ease: "none" });
   tl.addLabel("slide7-anim");
@@ -391,7 +409,6 @@ function setupScrollFlow() {
 setupScrollFlow();
 animateCounter();
 
-// Lottie animations
 initLottieSimple("#lottie-3", "assets/json/fast_fashion.json");
 initLottieSimple("#lottie-4", "assets/json/armoire.json");
 initLottieSimple("#lottie-5", "assets/json/impact_environnement.json");
