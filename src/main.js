@@ -179,7 +179,7 @@ function setupScrollFlow() {
     "slide5-anim+=0.5"
   );
 
-// Slide 6: Horloge et pièces tombantes
+  // Slide 6: Horloge et pièces tombantes
   tl.to(container, { x: "-300vw", y: "-300vh", ease: "none" });
   tl.addLabel("slide6-anim");
 
@@ -187,32 +187,32 @@ function setupScrollFlow() {
 
   tl.to(
     ".hand-minute",
-    { 
-        rotation: 720, // 2 tours
-        duration: clockDuration, 
-        ease: "power1.inOut", 
-        transformOrigin: "bottom center" 
+    {
+      rotation: 720, // 2 tours
+      duration: clockDuration,
+      ease: "power1.inOut",
+      transformOrigin: "bottom center",
     },
     "slide6-anim"
   );
 
   tl.to(
     ".hand-hour",
-    { 
-        rotation: 120, 
-        duration: clockDuration, 
-        ease: "power1.inOut", 
-        transformOrigin: "bottom center" 
+    {
+      rotation: 120,
+      duration: clockDuration,
+      ease: "power1.inOut",
+      transformOrigin: "bottom center",
     },
     "slide6-anim"
   );
 
   tl.to(
-    ".clock-pie", 
-    { 
-        strokeDashoffset: 300, // On arrête le remplissage coordonné avec l'aiguille
-        duration: clockDuration, 
-        ease: "power1.inOut" 
+    ".clock-pie",
+    {
+      strokeDashoffset: 300, // On arrête le remplissage coordonné avec l'aiguille
+      duration: clockDuration,
+      ease: "power1.inOut",
     },
     "slide6-anim"
   );
@@ -246,10 +246,10 @@ function setupScrollFlow() {
   // 2. L'océan monte (Les deux couches en même temps)
   tl.to(
     ".water__layer", // Cible les deux classes .water__layer--front et --back
-    { 
-      y: "0%", 
-      duration: 2.5, 
-      ease: "power2.out" 
+    {
+      y: "0%",
+      duration: 2.5,
+      ease: "power2.out",
     },
     "slide7-anim+=0.5"
   );
@@ -262,47 +262,93 @@ function setupScrollFlow() {
   );
 
   // --- ANIMATION CONTINUE DES VAGUES (Boucle) ---
-  
+
   // Vague avant
   gsap.to(".water__wave--front", {
-    x: "-5%", 
-    duration: 3,
+    x: "-5%",
+    duration: 1.5,
     repeat: -1,
     yoyo: true,
-    ease: "sine.inOut"
+    ease: "sine.inOut",
   });
 
   // Vague arrière (mouvement inverse pour plus de naturel)
   gsap.to(".water__wave--back", {
-    x: "5%", 
-    duration: 4,
+    x: "5%",
+    duration: 1,
     repeat: -1,
     yoyo: true,
-    ease: "sine.inOut"
+    ease: "sine.inOut",
   });
 
   // Slide 8: Rana Plaza - effondrement
+
   tl.to(container, { x: "-400vw", y: "-400vh", ease: "none" });
   tl.addLabel("slide8-anim");
-  tl.to(".tragedy", { opacity: 1, duration: 0.5 }, "slide8-anim");
-  tl.call(
-    () => {
-      document.querySelector(".building__img").classList.add("lights-out");
-    },
-    null,
-    "slide8-anim+=1"
+
+  // 1. L'immeuble sort
+  tl.fromTo(
+    ".building__svg", 
+    { y: "100%" }, 
+    { y: "0%", duration: 1, ease: "power2.out" }, 
+    "slide8-anim"
   );
-  const collapseTl = gsap.timeline();
-  collapseTl
-    .to(".building__img", { x: "+=15", yoyo: true, repeat: 5, duration: 0.05 })
-    .to(".building__img", {
-      y: "100vh",
-      rotation: 10,
+
+
+  tl.to(
+    [".rana__header", ".rana__col-right"], 
+    { opacity: 1, duration: 1, stagger: 0.3 }, 
+    "slide8-anim+=0.5"
+  );
+
+
+  
+  const getSortedWindows = () => {
+
+    const windows = Array.from(document.querySelectorAll(".building__svg rect[fill='#fbd236']"));
+
+    return windows.sort((a, b) => {
+      const yA = parseFloat(a.getAttribute("y"));
+      const yB = parseFloat(b.getAttribute("y"));
+      return yA - yB;
+    });
+  };
+
+
+  tl.to(
+    getSortedWindows(), 
+    { 
+      fill: "#000000", 
+      duration: 0.1, 
+      stagger: 0.05 
+    },
+    "slide8-anim+=1.5"
+  );
+
+  // 4. Tremblement
+  tl.to(
+    ".building__svg", 
+    { 
+      x: "+=15", 
+      yoyo: true, 
+      repeat: 10, 
+      duration: 0.05 
+    },
+    ">"
+  );
+
+  // 5. Chute
+  tl.to(
+    ".building__svg", 
+    {
+      y: "150vh", 
+      rotation: 5, 
       opacity: 0,
       duration: 1.5,
       ease: "power2.in",
-    });
-  tl.add(collapseTl, "slide8-anim+=1.5");
+    },
+    ">"
+  );
 
   // Slide 9: Recyclage
   tl.to(container, { x: "-400vw", y: "-500vh", ease: "none" });

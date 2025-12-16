@@ -113,7 +113,7 @@ body {
 }
 
 .slide__title {
-  font-size: 2.5rem;
+  font-size: 4rem;
   font-weight: bold;
   margin-bottom: 3rem;
 }
@@ -534,7 +534,7 @@ body {
 
 .tag__rank {
   font-family: var(--font-primary);
-  font-size: 4rem;
+  font-size: 6rem;
   font-weight: 900;
   color: #d32f2f;
   line-height: 1;
@@ -543,7 +543,7 @@ body {
 
 .tag__label {
   font-family: var(--font-secondary);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 800;
   color: #d32f2f;
   text-align: center;
@@ -552,7 +552,7 @@ body {
 }
 
 .tag__icon {
-  width: 60px;
+  width: 80px;
   height: auto;
   margin-bottom: auto;
 }
@@ -865,73 +865,98 @@ body {
    SLIDE 8 - RANA PLAZA
    ========================================================================== */
 
+/* ==========================================================================
+   SLIDE 8 - RANA PLAZA (Layout Maquette)
+   ========================================================================== */
+
 #slide-8 {
   background-color: var(--vert);
   color: var(--jaune);
-}
-
-.rana {
   display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.rana__building {
-  width: 50%;
-  display: flex;
-  align-items: flex-end;
+  flex-direction: column;
   justify-content: center;
-}
-
-.rana__text {
-  width: 50%;
-  display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding-left: 3rem;
+  padding: 0 5vw; /* Marge sur les côtés */
 }
 
-.building {
-  width: 80%;
-  position: relative;
-}
-
-.building__img {
+/* --- EN-TÊTE --- */
+.rana__header {
   width: 100%;
-  height: auto;
-}
-
-.tragedy {
+  max-width: 1200px; /* Largeur max contenu */
   text-align: left;
-  opacity: 0;
+  margin-bottom: 2rem;
+  opacity: 0; /* Pour animation */
 }
 
-.tragedy h3 {
-  font-size: 2.5rem;
+.rana__header h3 {
+  font-family: "Omnes", var(--font-secondary);
+  font-weight: 800;
+  font-size: 3rem;
   color: var(--jaune);
-}
-
-.tragedy__stats {
-  margin-top: 2rem;
-}
-
-.tragedy__stat {
-  font-weight: 900;
-  color: var(--rouge);
+  line-height: 1.2;
   margin: 0;
 }
 
-.tragedy__stat--dead {
-  font-size: 5rem;
+/* --- CONTENU (Immeuble + Stats) --- */
+.rana__content {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Centrage vertical des deux colonnes */
+  width: 100%;
+  max-width: 1200px;
+  gap: 5rem; /* Espace entre immeuble et stats */
 }
 
-.tragedy__stat--injured {
-  font-size: 4rem;
+/* Colonne Gauche (Immeuble) */
+.rana__col-left {
+  flex: 0 0 40%; /* Prend environ 40% de la largeur */
+  display: flex;
+  justify-content: flex-start; /* Aligné à gauche */
 }
 
-.tragedy__stat span {
-  font-size: 2rem;
+.building__svg {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  display: block;
+}
+
+/* Colonne Droite (Stats) */
+.rana__col-right {
+  flex: 1; /* Prend le reste de la place */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Espace entre les deux lignes de stats */
+  opacity: 0; /* Pour animation */
+}
+
+.rana__stat-row {
+  display: flex;
+  align-items: baseline; /* Aligne le texte sur la ligne de base */
+  gap: 1.5rem;
+  line-height: 1;
+}
+
+.rana__number {
+  font-size: 8rem;
+  color: var(--rouge);
+  white-space: nowrap;
+}
+
+.rana__label {
+  font-size: 3rem;
   color: var(--jaune);
+  text-transform: uppercase;
+}
+
+/* Classes utilitaires Polices */
+.font-novaro {
+  font-family: "Novaro", var(--font-primary), sans-serif;
+  font-weight: 900;
+}
+.font-omnes {
+  font-family: "Omnes", var(--font-secondary), sans-serif !important;
+  font-weight: 800;
 }
 
 /* ==========================================================================
