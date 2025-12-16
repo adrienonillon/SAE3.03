@@ -1,310 +1,447 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Impact Fast Fashion</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
     <div class="progress">
-      <div class="progress__bar"></div>
+        <div class="progress__bar"></div>
     </div>
 
     <main class="scroll-container">
-      
-      <section class="slide" id="slide-0">
-        <div class="slide__content slide__content--hero"><img src="./logo.png" alt="Logo" class="slide__logo"></div>
-      </section>
-
-      <section class="slide" id="slide-1">
-          <div class="falling">
-            <img src="./chaussette.svg" class="falling__item">
-            <img src="./t-shirt.svg" class="falling__item falling__item--front">
-            <img src="./pantalon.svg" class="falling__item">
-            <img src="./chaussette.svg" class="falling__item falling__item--front">
-            <img src="./t-shirt.svg" class="falling__item">
-            <img src="./pantalon.svg" class="falling__item falling__item--front">
-            <img src="./chaussette.svg" class="falling__item">
-            <img src="./t-shirt.svg" class="falling__item falling__item--front">
-          </div>
-          <div class="slide__content slide__content--transparent">
-            <h2><span class="slide__number" id="counter-7000">0</span> <span class="slide__label">MILLIONS</span></h2>
-            <p>Vêtements neufs achetés par jour en France</p>
-          </div>
-      </section>
-
-      <section class="slide" id="slide-2">
-          <div class="slide__layout">
-            <div class="tshirts">
-              <div class="tshirts__row">
-                 <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--blue">
-                 <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--blue">
-                 <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--blue">
-                 <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--blue">
-                 <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--blue">
-              </div>
-              <div class="tshirts__row">
-                 <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--blue">
-                 <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--blue">
-                 <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--beige">
-                 <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--beige">
-                 <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--beige">
-              </div>
+        <section class="slide" id="slide-0">
+            <div class="slide__content slide__content--hero">
+                <img src="./logo.png" alt="Logo" class="slide__logo" />
             </div>
-            <div class="slide__content slide__content--reveal">
-              <h2><span class="slide__number">7</span><span class="slide__separator">/</span><span class="slide__number">10</span></h2>
-              <p class="slide__text">Des vêtements</p>
-              <p class="slide__text">Sont considérés comme low cost</p>
+        </section>
+
+        <section class="slide" id="slide-1">
+            <div class="falling">
+                <img src="./chaussette.svg" class="falling__item" />
+                <img src="./t-shirt.svg" class="falling__item falling__item--front" />
+                <img src="./pantalon.svg" class="falling__item" />
+                <img src="./chaussette.svg" class="falling__item falling__item--front" />
+                <img src="./t-shirt.svg" class="falling__item" />
+                <img src="./pantalon.svg" class="falling__item falling__item--front" />
+                <img src="./chaussette.svg" class="falling__item" />
+                <img src="./t-shirt.svg" class="falling__item falling__item--front" />
             </div>
-          </div>
-      </section>
-
-      <section class="slide" id="slide-3">
-          <div class="slide__content"><h3 class="slide__subtitle">Vêtements</h3><h2 class="slide__number slide__number--large">7200</h2><p class="slide__desc">proposés par jour</p></div>
-          <div class="zipper">
-              <div class="zipper__panel zipper__panel--left"></div><div class="zipper__panel zipper__panel--right"></div>
-              <img src="./zip.svg" class="zipper__pull">
-          </div>
-      </section>
-
-      <section class="slide" id="slide-4">
-          <div class="slide__col slide__col--text">
-            <div class="wardrobe__text">
-                <h2 class="slide__number"><span class="slide__number--huge">50</span><span class="slide__percent">%</span></h2>
-                <p class="slide__desc">Des vêtements dorment<br>dans nos placards</p>
+            <div class="slide__content slide__content--transparent">
+                <h2>
+                    <span class="slide__number" id="counter-7000">0</span>
+                    <span class="slide__label">MILLIONS</span>
+                </h2>
+                <p>Vêtements neufs achetés par jour en France</p>
             </div>
-          </div>
-          <div class="slide__col slide__col--visual">
-              <div class="wardrobe">
-                  <div class="wardrobe__door wardrobe__door--top">
-                      <img src="./armoire.svg" class="wardrobe__img wardrobe__img--top">
-                  </div>
-                  <div class="wardrobe__door wardrobe__door--bottom">
-                      <img src="./armoire.svg" class="wardrobe__img wardrobe__img--bottom">
-                  </div>
-                   <div class="wardrobe__interior">
-                      <img src="./t-shirt.svg" class="wardrobe__clothes wardrobe__clothes--1">
-                      <img src="./pantalon.svg" class="wardrobe__clothes wardrobe__clothes--2">
-                      <img src="./t-shirt.svg" class="wardrobe__clothes wardrobe__clothes--3">
-                  </div>
-              </div>
-          </div>
-      </section>
+        </section>
 
-      <section class="slide" id="slide-5">
-          <div class="chart">
-              
-              <div class="chart__header">
-                  <div class="chart__title">
-                      source d'impact sur<br>l'environnement
-                  </div>
-                  <div class="chart__ranking">
-                      <span class="chart__rank">4</span><span class="chart__suffix">ÈME</span>
-                  </div>
-              </div>
+        <section class="slide" id="slide-2">
+            <div class="slide__layout">
+                <div class="tshirts">
+                    <div class="tshirts__row">
+                        <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--blue" />
+                        <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--blue" />
+                        <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--blue" />
+                        <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--blue" />
+                        <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--blue" />
+                    </div>
+                    <div class="tshirts__row">
+                        <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--blue" />
+                        <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--blue" />
+                        <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--beige" />
+                        <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--beige" />
+                        <img src="./t-shirt.svg" class="tshirts__icon tshirts__icon--beige" />
+                    </div>
+                </div>
+                <div class="slide__content slide__content--reveal">
+                    <h2>
+                        <span class="slide__number">7</span><span class="slide__separator">/</span><span
+                            class="slide__number">10</span>
+                    </h2>
+                    <p class="slide__text">Des vêtements</p>
+                    <p class="slide__text">Sont considérés comme low cost</p>
+                </div>
+            </div>
+        </section>
 
-              <div class="chart__bars">
-                  
-                  <div class="chart__bar chart__bar--textile">
-                      <div class="tag">
-                          <div class="tag__content">
-                              <div class="tag__hole"></div>
-                              <span class="tag__rank">4</span>
-                              <span class="tag__label">Textile</span>
-                              <img src="./t-shirt-orange.svg" class="tag__icon">
-                          </div>
-                      </div>
-                  </div>
+        <section class="slide" id="slide-3">
+            <div class="slide__content">
+                <h3 class="slide__subtitle">Vêtements</h3>
+                <h2 class="slide__number slide__number--large">7200</h2>
+                <p class="slide__desc">proposés par jour</p>
+            </div>
+            <div class="zipper">
+                <div class="zipper__panel zipper__panel--left"></div>
+                <div class="zipper__panel zipper__panel--right"></div>
+                <img src="./zip.svg" class="zipper__pull" />
+            </div>
+        </section>
 
-                  <div class="chart__bar chart__bar--alim">
-                      <div class="tag">
-                          <div class="tag__content">
-                              <div class="tag__hole"></div>
-                              <span class="tag__rank">3</span>
-                              <span class="tag__label">Alimentation</span>
-                              <img src="./pomme.svg" class="tag__icon">
-                          </div>
-                      </div>
-                  </div>
+        <section class="slide" id="slide-4">
+            <div class="slide__col slide__col--text">
+                <div class="wardrobe__text">
+                    <h2 class="slide__number">
+                        <span class="slide__number--huge">50</span><span class="slide__percent">%</span>
+                    </h2>
+                    <p class="slide__desc">
+                        Des vêtements dorment<br />dans nos placards
+                    </p>
+                </div>
+            </div>
+            <div class="slide__col slide__col--visual">
+                <div class="wardrobe">
+                    <div class="wardrobe__door wardrobe__door--top">
+                        <img src="./armoire.svg" class="wardrobe__img wardrobe__img--top" />
+                    </div>
+                    <div class="wardrobe__door wardrobe__door--bottom">
+                        <img src="./armoire.svg" class="wardrobe__img wardrobe__img--bottom" />
+                    </div>
+                    <div class="wardrobe__interior">
+                        <img src="./t-shirt.svg" class="wardrobe__clothes wardrobe__clothes--1" />
+                        <img src="./pantalon.svg" class="wardrobe__clothes wardrobe__clothes--2" />
+                        <img src="./t-shirt.svg" class="wardrobe__clothes wardrobe__clothes--3" />
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                  <div class="chart__bar chart__bar--logement">
-                      <div class="tag">
-                          <div class="tag__content">
-                              <div class="tag__hole"></div>
-                              <span class="tag__rank">2</span>
-                              <span class="tag__label">Logement</span>
-                              <img src="./maison.svg" class="tag__icon">
-                          </div>
-                      </div>
-                  </div>
+        <section class="slide" id="slide-5">
+            <div class="chart">
+                <div class="chart__header">
+                    <div class="chart__title">
+                        source d'impact sur<br />l'environnement
+                    </div>
+                    <div class="chart__ranking">
+                        <span class="chart__rank">4</span><span class="chart__suffix">ÈME</span>
+                    </div>
+                </div>
 
-                  <div class="chart__bar chart__bar--transport">
-                      <div class="tag">
-                          <div class="tag__content">
-                              <div class="tag__hole"></div>
-                              <span class="tag__rank">1</span>
-                              <span class="tag__label">Transport</span>
-                              <img src="./bus.svg" class="tag__icon">
-                          </div>
-                      </div>
-                  </div>
+                <div class="chart__bars">
+                    <div class="chart__bar chart__bar--textile">
+                        <div class="tag">
+                            <div class="tag__content">
+                                <div class="tag__hole"></div>
+                                <span class="tag__rank">4</span>
+                                <span class="tag__label">Textile</span>
+                                <img src="./t-shirt-orange.svg" class="tag__icon" />
+                            </div>
+                        </div>
+                    </div>
 
-              </div>
-          </div>
-      </section>
+                    <div class="chart__bar chart__bar--alim">
+                        <div class="tag">
+                            <div class="tag__content">
+                                <div class="tag__hole"></div>
+                                <span class="tag__rank">3</span>
+                                <span class="tag__label">Alimentation</span>
+                                <img src="./pomme.svg" class="tag__icon" />
+                            </div>
+                        </div>
+                    </div>
 
-      <section class="slide" id="slide-6">
-          <h2 class="slide__title">Cadence de travail infernale</h2>
-          <div class="work">
-              <div class="clock">
-                  <div class="clock__face"><div class="clock__hand clock__hand--hour"></div><div class="clock__hand clock__hand--minute"></div></div>
-              </div>
-              <div class="work__hours"><span class="work__number">75 à 80</span> HEURES<br>par semaine</div>
-              <div class="coins">
-                  <div class="coins__pile">
-                      <img src="./piece.svg" class="coins__item coins__item--1"><img src="./piece.svg" class="coins__item coins__item--2"><img src="./piece.svg" class="coins__item coins__item--3"><img src="./piece.svg" class="coins__item coins__item--4"><img src="./piece.svg" class="coins__item coins__item--5">
-                  </div>
-                  <p class="coins__text">QUELQUES centimes par vêtements</p>
-              </div>
-          </div>
-      </section>
+                    <div class="chart__bar chart__bar--logement">
+                        <div class="tag">
+                            <div class="tag__content">
+                                <div class="tag__hole"></div>
+                                <span class="tag__rank">2</span>
+                                <span class="tag__label">Logement</span>
+                                <img src="./maison.svg" class="tag__icon" />
+                            </div>
+                        </div>
+                    </div>
 
-      <section class="slide" id="slide-7">
-          <div class="water__content">
-              <h3>La fabrication d'un seul jean nécessite environ</h3>
-              <h2 class="water__number">7 000 LITRES D'EAU</h2>
-          </div>
-          <div class="water__fill">
-              <div class="water__jet"></div>
-              <div class="water__level">
-                  <svg class="water__wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#1a237e" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
-              </div>
-          </div>
-      </section>
+                    <div class="chart__bar chart__bar--transport">
+                        <div class="tag">
+                            <div class="tag__content">
+                                <div class="tag__hole"></div>
+                                <span class="tag__rank">1</span>
+                                <span class="tag__label">Transport</span>
+                                <img src="./bus.svg" class="tag__icon" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <section class="slide" id="slide-8">
-          <div class="rana">
-              <div class="rana__building">
-                  <div class="building">
-                      <img src="./immeuble.svg" class="building__img">
-                  </div>
-              </div>
-              <div class="rana__text">
-                  <div class="tragedy">
-                      <h3>Tragédie sociale<br>Effondrement du Rana Plaza</h3>
-                      <div class="tragedy__stats">
-                          <h2 class="tragedy__stat tragedy__stat--dead">1 100 <span>MORTS</span></h2>
-                          <h2 class="tragedy__stat tragedy__stat--injured">2 500 <span>BLÉSSÉS</span></h2>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
+        <section class="slide" id="slide-6">
+            <h2 class="slide__title">Cadence de travail infernale</h2>
 
-      <section class="slide" id="slide-9">
-          <div class="recycling">
-              <div class="recycling__falling">
-                <img src="./t-shirt.svg" class="recycling__item recycling__item--1"><img src="./pantalon.svg" class="recycling__item recycling__item--2"><img src="./chaussette.svg" class="recycling__item recycling__item--3"><img src="./t-shirt.svg" class="recycling__item recycling__item--4"><img src="./pantalon.svg" class="recycling__item recycling__item--5">
-              </div>
-              
-              <div class="bins">
-                  <div class="bin bin--left">
-                      <img src="./recyclage.svg" alt="Recycling" class="bin__logo">
-                  </div>
-                  <div class="bin bin--right">
-                      <div class="bin__content">
-                        <h2 class="bin__percent">36,4<small>%</small></h2>
-                        <p>des produits mis sur le marché ont été collectés pour être triés.</p>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
+            <div class="work-grid-full">
 
-      <section class="slide" id="slide-10">
-          <div class="afrique">
-              <div class="afrique__text">
-                  <div class="afrique__block afrique__block--1">
-                      <h2>+ 15 Millions</h2>
-                      <p>de vêtements déposés en Afrique</p>
-                  </div>
-                  <div class="afrique__block afrique__block--2">
-                      <h2>160 Tonnes</h2>
-                      <p>reçues par le Ghana, dont <span class="afrique__highlight">40%</span> finissent jetés</p>
-                  </div>
-              </div>
-              <div class="afrique__map">
-                  <div class="map">
-                      <img src="./afrique.svg" class="map__base">
-                      <img src="./ghana.svg" class="map__overlay">
-                  </div>
-              </div>
-          </div>
-      </section>
+                <div class="grid-col col-left">
 
-      <section class="slide" id="slide-11">
-          <div class="factory">
-              <img src="./usine.svg" class="factory__img">
-              
-              <div class="smoke">
-                  <span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span>
-                  <span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span><span class="smoke__dot smoke__dot--colored"></span>
-                  <span class="smoke__dot smoke__dot--colored"></span>
-                  <span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span>
-                  <span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span>
-                  <span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span>
-                  <span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span>
-              </div>
+                    <div class="clock-svg-container">
+                        <svg id="clock-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 329.63 329.64">
+                            <g id="clock-bg">
+                                <path
+                                    d="M168.82,21.71v.37c77.01,2.11,138.79,65.21,138.79,142.74,0,2.24-.05,4.47-.16,6.68h.08c.12-2.34.18-4.69.18-7.06,0-77.55-61.84-140.67-138.89-142.73ZM22.02,164.82c0,78.86,63.93,142.8,142.79,142.8,61.3,0,113.57-38.62,133.82-92.86,0,0-130.63-40.24-131.86-43.26l2.04-149.42c-1.33-.04-2.66-.06-4-.06-78.86,0-142.79,63.93-142.79,142.8Z"
+                                    fill="#ddb147" />
+                                <path
+                                    d="M164.81,0C73.79,0,0,73.79,0,164.82s73.79,164.82,164.81,164.82,164.82-73.8,164.82-164.82S255.84,0,164.81,0ZM298.63,214.76c-20.25,54.24-72.52,92.86-133.82,92.86-78.86,0-142.79-63.94-142.79-142.8S85.95,22.02,164.81,22.02c1.34,0,2.67.02,4,.06v-.37c77.06,2.06,138.9,65.18,138.9,142.73,0,2.37-.06,4.72-.18,7.06h-.08c-.69,15.15-3.75,29.69-8.81,43.25h-.01Z"
+                                    fill="#fbd236" />
+                                <path
+                                    d="M298.63,214.76c-20.25,54.24-72.52,92.86-133.82,92.86-78.86,0-142.79-63.94-142.79-142.8S85.95,22.02,164.81,22.02c1.34,0,2.67.02,4,.06l-2.04,149.42c1.23,3.02,131.86,43.26,131.86,43.26Z"
+                                    fill="#ebebd3" />
+                                <path
+                                    d="M307.61,164.82c0,2.24-.05,4.47-.16,6.68-.69,15.15-3.75,29.69-8.81,43.25h-.01s-130.63-40.23-131.86-43.25l2.04-149.42c77.02,2.11,138.8,65.21,138.8,142.74Z"
+                                    fill="#e6503c" />
+                                <path
+                                    d="M307.71,164.44c0,2.37-.06,4.72-.18,7.06h-.08c.11-2.21.16-4.44.16-6.68,0-77.53-61.78-140.63-138.8-142.74v-.37c77.06,2.06,138.9,65.18,138.9,142.73Z"
+                                    fill="#312782" />
+                                <line x1="165.07" y1="262.41" x2="164.56" y2="299.69" fill="none" stroke="#e6503c"
+                                    stroke-miterlimit="10" stroke-width="4" />
+                                <line x1="168.23" y1="31.72" x2="167.72" y2="69" fill="none" stroke="#fbd236"
+                                    stroke-miterlimit="10" stroke-width="4" />
+                                <line x1="30" y1="171.5" x2="67.28" y2="171.5" fill="none" stroke="#e6503c"
+                                    stroke-miterlimit="10" stroke-width="4" />
+                                <line x1="262.86" y1="171.51" x2="300.14" y2="171.51" fill="none" stroke="#fbd236"
+                                    stroke-miterlimit="10" stroke-width="4" />
+                            </g>
+                            <g id="hands" transform="translate(164.8, 164.8)">
+                                <line class="hand-hour" x1="0" y1="0" x2="0" y2="-60" stroke="#312782" stroke-width="8"
+                                    stroke-linecap="round" />
+                                <line class="hand-minute" x1="0" y1="0" x2="0" y2="-110" stroke="#e6503c"
+                                    stroke-width="5" stroke-linecap="round" />
+                                <circle cx="0" cy="0" r="8" fill="#312782" />
+                            </g>
+                        </svg>
+                    </div>
 
-              <div class="factory__text">
-                  <h2>21<small>%</small></h2>
-                  <p>des Français estiment que le MADE IN FRANCE EST UN CRITÈRE TRÈS IMPORTANT.</p>
-              </div>
-          </div>
-      </section>
+                    <div class="cents-text font-novaro">
+                        <span class="cents-highlight">QUELQUES</span> centimes<br>par vêtement
+                    </div>
 
-      <section class="slide" id="slide-12">
-          <div class="hats">
-              <h2 class="hats__title">6 CONSEILS<br><small>Pour entretenir ses vêtements</small></h2>
-              
-              <div class="hats__stack">
-                  <img src="./chapeau-jaune.svg" class="hats__item hats__item--6">
-                  <img src="./chapeau-bleu.svg" class="hats__item hats__item--5">
-                  <img src="./chapeau-jaune.svg" class="hats__item hats__item--4">
-                  <img src="./chapeau-bleu.svg" class="hats__item hats__item--3">
-                  <img src="./chapeau-jaune.svg" class="hats__item hats__item--2">
-                  <img src="./chapeau-bleu.svg" class="hats__item hats__item--1">
-              </div>
+                </div>
 
-              <div class="hats__tips hats__tips--left">
-                  <p class="hats__tip hats__tip--1">Ne pas les laver trop souvent</p>
-                  <p class="hats__tip hats__tip--2">Miser sur la qualité</p>
-                  <p class="hats__tip hats__tip--3">Utiliser des lessives avec des labels</p>
-              </div>
+                <div class="grid-col col-right">
 
-              <div class="hats__tips hats__tips--right">
-                  <p class="hats__tip hats__tip--4">Sécher à l'air libre</p>
-                  <p class="hats__tip hats__tip--5">Plier plutôt que de suspendre</p>
-                  <p class="hats__tip hats__tip--6">Repasser avec modération</p>
-              </div>
-          </div>
-      </section>
+                    <div class="work__hours">
+                        <div class="work__number-group font-novaro">
+                            75 <span class="small-a">à</span> 80
+                        </div>
+                        <div class="work__sublabel">HEURES par semaine</div>
+                    </div>
 
-      <section class="slide" id="slide-13">
-          <div class="final">
-              <h2>À NOUS D'AGIR</h2>
-              <p>Pour une mode plus responsable.</p>
-              <div class="final__line"></div>
-          </div>
-      </section>
+                    <div class="coins-container">
+                        <div class="coins__pile">
+                            <img src="./piece.svg" class="coins__item coins__item--1">
+                            <img src="./piece.svg" class="coins__item coins__item--2">
+                            <img src="./piece.svg" class="coins__item coins__item--3">
+                            <img src="./piece.svg" class="coins__item coins__item--4">
+                            <img src="./piece.svg" class="coins__item coins__item--5">
+                        </div>
+                    </div>
 
+                </div>
+
+            </div>
+        </section>
+
+        <section class="slide" id="slide-7">
+            <div class="water__content">
+                <h3>La fabrication d'un seul jean nécessite environ</h3>
+                <h2 class="water__number">7 000 LITRES D'EAU</h2>
+            </div>
+            <div class="water__fill">
+                <div class="water__jet"></div>
+                <div class="water__level">
+                    <svg class="water__wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                        <path fill="#1a237e" fill-opacity="1"
+                            d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-8">
+            <div class="rana">
+                <div class="rana__building">
+                    <div class="building">
+                        <img src="./SVG/immeuble.svg" class="building__img" />
+                    </div>
+                </div>
+                <div class="rana__text">
+                    <div class="tragedy">
+                        <h3>Tragédie sociale<br />Effondrement du Rana Plaza</h3>
+                        <div class="tragedy__stats">
+                            <h2 class="tragedy__stat tragedy__stat--dead">
+                                1 100 <span>MORTS</span>
+                            </h2>
+                            <h2 class="tragedy__stat tragedy__stat--injured">
+                                2 500 <span>BLÉSSÉS</span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-9">
+            <div class="recycling">
+                <div class="recycling__falling">
+                    <img src="./t-shirt.svg" class="recycling__item recycling__item--1" /><img src="./pantalon.svg"
+                        class="recycling__item recycling__item--2" /><img src="./chaussette.svg"
+                        class="recycling__item recycling__item--3" /><img src="./t-shirt.svg"
+                        class="recycling__item recycling__item--4" /><img src="./pantalon.svg"
+                        class="recycling__item recycling__item--5" />
+                </div>
+
+                <div class="bins">
+                    <div class="bin bin--left">
+                        <img src="./recyclage.svg" alt="Recycling" class="bin__logo" />
+                    </div>
+                    <div class="bin bin--right">
+                        <div class="bin__content">
+                            <h2 class="bin__percent">36,4<small>%</small></h2>
+                            <p>
+                                des produits mis sur le marché ont été collectés pour être
+                                triés.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-10">
+            <div class="afrique">
+                <div class="afrique__text">
+                    <div class="afrique__block afrique__block--1">
+                        <h2>+ 15 Millions</h2>
+                        <p>de vêtements déposés en Afrique</p>
+                    </div>
+                    <div class="afrique__block afrique__block--2">
+                        <h2>160 Tonnes</h2>
+                        <p>
+                            reçues par le Ghana, dont
+                            <span class="afrique__highlight">40%</span> finissent jetés
+                        </p>
+                    </div>
+                </div>
+                <div class="afrique__map">
+                    <div class="map">
+                        <img src="./afrique.svg" class="map__base" />
+                        <img src="./ghana.svg" class="map__overlay" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-11">
+            <div class="factory">
+                <img src="./usine.svg" class="factory__img" />
+
+                <div class="smoke">
+                    <span class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span>
+                    <span class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span><span
+                        class="smoke__dot smoke__dot--colored"></span>
+                    <span class="smoke__dot smoke__dot--colored"></span>
+                    <span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span> <span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span>
+                    <span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span> <span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span><span
+                        class="smoke__dot"></span><span class="smoke__dot"></span><span class="smoke__dot"></span>
+                </div>
+
+                <div class="factory__text">
+                    <h2>21<small>%</small></h2>
+                    <p>
+                        des Français estiment que le MADE IN FRANCE EST UN CRITÈRE TRÈS
+                        IMPORTANT.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-12">
+            <div class="hats">
+                <h2 class="hats__title">
+                    6 CONSEILS<br /><small>Pour entretenir ses vêtements</small>
+                </h2>
+
+                <div class="hats__stack">
+                    <img src="./chapeau-jaune.svg" class="hats__item hats__item--6" />
+                    <img src="./chapeau-bleu.svg" class="hats__item hats__item--5" />
+                    <img src="./chapeau-jaune.svg" class="hats__item hats__item--4" />
+                    <img src="./chapeau-bleu.svg" class="hats__item hats__item--3" />
+                    <img src="./chapeau-jaune.svg" class="hats__item hats__item--2" />
+                    <img src="./chapeau-bleu.svg" class="hats__item hats__item--1" />
+                </div>
+
+                <div class="hats__tips hats__tips--left">
+                    <p class="hats__tip hats__tip--1">Ne pas les laver trop souvent</p>
+                    <p class="hats__tip hats__tip--2">Miser sur la qualité</p>
+                    <p class="hats__tip hats__tip--3">
+                        Utiliser des lessives avec des labels
+                    </p>
+                </div>
+
+                <div class="hats__tips hats__tips--right">
+                    <p class="hats__tip hats__tip--4">Sécher à l'air libre</p>
+                    <p class="hats__tip hats__tip--5">Plier plutôt que de suspendre</p>
+                    <p class="hats__tip hats__tip--6">Repasser avec modération</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-13">
+            <div class="final">
+                <h2>À NOUS D'AGIR</h2>
+                <p>Pour une mode plus responsable.</p>
+                <div class="final__line"></div>
+            </div>
+        </section>
     </main>
 
     <script type="module" src="/src/main.js"></script>
-  </body>
+</body>
+
 </html>

@@ -558,119 +558,140 @@ body {
 }
 
 /* ==========================================================================
-   SLIDE 6 - WORK CONDITIONS
+   SLIDE 6 - WORK CONDITIONS (Full Page Layout)
    ========================================================================== */
 
 #slide-6 {
   background-color: var(--vert);
   color: var(--jaune);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* On commence en haut */
+  padding-top: 5vh;
 }
 
-.work {
+#slide-6 .slide__title {
+  margin-bottom: 5vh;
+  text-align: center;
+  width: 100%;
+}
+
+/* Grille principale qui prend toute la largeur */
+.work-grid-full {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 50% Gauche, 50% Droite */
+  width: 100%;
+  height: 70%; /* Prend le reste de la hauteur */
+  padding: 0 5vw; /* Marges sur les côtés */
+  gap: 2rem;
+}
+
+/* --- COLONNE GAUCHE --- */
+.col-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centré horizontalement dans sa colonne */
+  justify-content: flex-start;
+}
+
+.clock-svg-container {
+  width: 300px;
+  height: 300px;
+  margin-bottom: 2rem;
+}
+
+#clock-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Texte "Quelques centimes" sous l'horloge */
+.cents-text {
+  text-align: center;
+  color: var(--jaune);
+  font-size: 3rem; /* Ajustez selon besoin */
+  line-height: 1.1;
+  margin-top: 1rem;
+}
+
+.cents-highlight {
+  color: var(--rouge);
+  display: block;
+  font-size: 4rem;
+}
+
+/* --- COLONNE DROITE --- */
+.col-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centré horizontalement dans sa colonne */
+  justify-content: flex-start;
+}
+
+/* Bloc texte 75-80 */
+.work__hours {
+  text-align: center;
+  margin-bottom: 4rem; /* Espace avant les pièces */
+}
+
+/* Style Police Novaro 200px */
+.font-novaro {
+  font-family: "Novaro", var(--font-primary), sans-serif;
+  font-weight: 900;
+}
+
+.work__number-group {
+  font-size: 12.5rem; /* ~200px */
+  color: var(--rouge);
+  line-height: 0.8;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6rem;
+  gap: 1rem;
 }
 
-.clock {
-  width: 250px;
-  height: 250px;
-  background: var(--jaune);
-  border-radius: 50%;
-  position: relative;
-  border: 10px solid #e0c060;
+.small-a {
+  font-size: 4rem;
+  color: var(--jaune);
+  font-family: var(--font-secondary); /* "à" en police normale */
+  vertical-align: middle;
 }
 
-.clock__face {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.clock__hand {
-  position: absolute;
-  bottom: 50%;
-  left: 50%;
-  background: var(--rouge);
-  transform-origin: bottom center;
-}
-
-.clock__hand--hour {
-  width: 6px;
-  height: 60px;
-  margin-left: -3px;
-}
-
-.clock__hand--minute {
-  width: 4px;
-  height: 90px;
-  margin-left: -2px;
-}
-
-.work__hours {
-  text-align: center;
-  font-size: 2rem;
+.work__sublabel {
+  font-size: 2.5rem;
   font-weight: bold;
   color: var(--jaune);
+  text-transform: uppercase;
+  margin-top: 1rem;
 }
 
-.work__number {
-  font-size: 6rem;
-  font-weight: 900;
-  color: var(--rouge);
-  display: block;
-  line-height: 0.9;
-}
-
-.coins {
+/* Conteneur Pièces */
+.coins-container {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
 }
 
 .coins__pile {
   position: relative;
-  width: 150px;
+  width: 250px; /* Pile plus large */
   height: 150px;
 }
 
 .coins__item {
   position: absolute;
-  width: 60px;
+  width: 90px; /* Pièces un peu plus grosses */
   opacity: 0;
+  filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.2));
 }
 
-.coins__item--1 {
-  bottom: 0;
-  left: 20px;
-}
-
-.coins__item--2 {
-  bottom: 10px;
-  left: 50px;
-}
-
-.coins__item--3 {
-  bottom: 25px;
-  left: 30px;
-}
-
-.coins__item--4 {
-  bottom: 40px;
-  left: 60px;
-}
-
-.coins__item--5 {
-  bottom: 50px;
-  left: 40px;
-}
-
-.coins__text {
-  color: var(--jaune);
-  font-weight: bold;
-  margin-top: 1rem;
-}
+/* Positionnement des pièces */
+.coins__item--1 { bottom: 0; left: 20%; z-index: 5; }
+.coins__item--2 { bottom: 15px; left: 50%; z-index: 4; transform: translateX(-50%); }
+.coins__item--3 { bottom: 30px; left: 30%; z-index: 3; }
+.coins__item--4 { bottom: 45px; left: 60%; z-index: 2; }
+.coins__item--5 { bottom: 10px; left: 70%; z-index: 1; }
 
 /* ==========================================================================
    SLIDE 7 - WATER
@@ -781,12 +802,6 @@ body {
 .building__img {
   width: 100%;
   height: auto;
-  filter: brightness(1);
-  transition: filter 0.5s;
-}
-
-.building__img.lights-out {
-  filter: brightness(0.3) sepia(1) hue-rotate(-50deg);
 }
 
 .tragedy {
@@ -893,7 +908,7 @@ body {
 }
 
 /* ==========================================================================
-   SLIDE 10 - AFRICA
+   SLIDE 10 - AFRIque
    ========================================================================== */
 
 #slide-10 {
@@ -931,14 +946,14 @@ body {
   margin-bottom: 3rem;
 }
 
-.africa__block h2 {
+.afrique__block h2 {
   font-size: 4rem;
   font-weight: 900;
   margin: 0;
   color: var(--rouge);
 }
 
-.africa__highlight {
+.afrique__highlight {
   color: var(--rouge);
 }
 
