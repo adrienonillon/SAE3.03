@@ -4,20 +4,20 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-/* ==========================================================================
+/* ============================================================
    COMPOSANTS GLOBAUX
-   ========================================================================== */
+   ============================================================ */
 
-/* Progress Bar */
+/* Barre de progression */
 .progress {
   position: fixed;
-  bottom: 20px;
+  bottom: 1.25rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 300px;
-  height: 6px;
+  width: 18.75rem;
+  height: 0.375rem;
   background: rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
+  border-radius: 0.625rem;
   z-index: 100;
 }
 
@@ -25,10 +25,10 @@ body {
   height: 100%;
   width: 0%;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 0.625rem;
 }
 
-/* Scroll Container */
+/* Conteneur de scroll */
 .scroll-container {
   display: grid;
   grid-template-columns: repeat(8, 100vw);
@@ -41,7 +41,7 @@ body {
   will-change: transform;
 }
 
-/* Slide */
+/* Slide générique */
 .slide {
   width: 100vw;
   height: 100vh;
@@ -57,8 +57,8 @@ body {
   z-index: 10;
   padding: 2rem;
   background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  border-radius: 15px;
+  backdrop-filter: blur(0.5rem);
+  border-radius: 0.9375rem;
   text-align: center;
 }
 
@@ -75,7 +75,7 @@ body {
 
 .slide__content--reveal {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(1.875rem);
   background: transparent;
   backdrop-filter: none;
 }
@@ -174,7 +174,6 @@ body {
   font-family: var(--font-secondary);
   font-size: 3.5rem;
   font-weight: 700;
-  margin-top: 1rem;
   color: var(--bleu);
 }
 
@@ -183,7 +182,15 @@ body {
   color: var(--bleu);
 }
 
-/* Slide 1 Styles */
+/* ============================================================
+   SLIDE 1 - STATISTIQUES VÊTEMENTS
+   ============================================================ */
+
+#slide-1 {
+  background-color: var(--jaune);
+  color: var(--bleu);
+}
+
 #slide-1 h2 {
   line-height: 0.9;
   margin: 0;
@@ -200,7 +207,7 @@ body {
   color: var(--bleu);
 }
 
-/* Falling Elements */
+/* Animation d'éléments qui tombent */
 .falling {
   position: absolute;
   top: 0;
@@ -214,7 +221,7 @@ body {
 .falling__item {
   position: absolute;
   top: -40vh;
-  min-width: 100px;
+  min-width: 6.25rem;
   z-index: 5;
 }
 
@@ -222,9 +229,14 @@ body {
   z-index: 15;
 }
 
-/* ==========================================================================
-   SLIDE 2 - T-SHIRTS
-   ========================================================================== */
+/* ============================================================
+   SLIDE 2 - RATIO 7/10 LOW COST
+   ============================================================ */
+
+#slide-2 {
+  background-color: var(--jaune);
+  color: var(--bleu);
+}
 
 #slide-2 .slide__content {
   background: transparent;
@@ -253,7 +265,7 @@ body {
 }
 
 .tshirts__icon {
-  width: 140px;
+  width: 8.75rem;
   height: auto;
   opacity: 0;
   transform: scale(0.8);
@@ -267,9 +279,9 @@ body {
   filter: sepia(1) saturate(0.5);
 }
 
-/* ==========================================================================
-   SLIDE 3 - ZIPPER
-   ========================================================================== */
+/* ============================================================
+   SLIDE 3 - 7200 VÊTEMENTS PAR JOUR
+   ============================================================ */
 
 #slide-3 {
   background-color: var(--jaune);
@@ -308,13 +320,13 @@ body {
   top: -15vh;
   left: 50%;
   transform: translate(-50%, 0) rotate(90deg);
-  width: 100px;
+  width: 6.25rem;
   z-index: 30;
 }
 
-/* ==========================================================================
-   SLIDE 4 - WARDROBE
-   ========================================================================== */
+/* ============================================================
+   SLIDE 4 - 50% DES VÊTEMENTS DANS LES PLACARDS
+   ============================================================ */
 
 #slide-4 {
   background-color: var(--jaune);
@@ -326,13 +338,13 @@ body {
 .wardrobe__text {
   text-align: left;
   opacity: 0;
-  transform: translateX(-30px);
+  transform: translateX(-1.875rem);
 }
 
 .wardrobe {
   position: relative;
-  width: 550px;
-  height: 650px;
+  width: 34.375rem;
+  height: 40.625rem;
   overflow: hidden;
 }
 
@@ -387,9 +399,9 @@ body {
 }
 
 .wardrobe__clothes {
-  width: 100px;
+  width: 6.25rem;
   position: absolute;
-  top: -150px;
+  top: -9.375rem;
 }
 
 .wardrobe__clothes--1 {
@@ -407,9 +419,9 @@ body {
   transform: translateX(-50%);
 }
 
-/* ==========================================================================
-   SLIDE 5 - CHART
-   ========================================================================== */
+/* ============================================================
+   SLIDE 5 - 4ÈME SOURCE D'IMPACT ENVIRONNEMENTAL
+   ============================================================ */
 
 #slide-5 {
   background-color: #008080;
@@ -434,13 +446,13 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .chart__title {
   text-align: right;
   font-family: "Omnes", var(--font-secondary);
-  font-size: 55px;
+  font-size: 3.4375rem;
   font-weight: 800;
   color: #fdd835;
   line-height: 1.1;
@@ -454,7 +466,7 @@ body {
 
 .chart__rank {
   font-family: "Novaro", var(--font-primary);
-  font-size: 300px;
+  font-size: 18.75rem;
   font-weight: 900;
   color: #e53935;
 }
@@ -464,7 +476,7 @@ body {
   font-size: 2.5rem;
   font-weight: 900;
   color: #fdd835;
-  margin-left: 5px;
+  margin-left: 0.3125rem;
 }
 
 .chart__bars {
@@ -500,7 +512,7 @@ body {
   --target-height: 100%;
 }
 
-/* Tag */
+/* Étiquettes des graphiques */
 .tag {
   width: 100%;
   height: 100%;
@@ -524,8 +536,8 @@ body {
 }
 
 .tag__hole {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   background-color: #004d40;
   border-radius: 50%;
   margin-bottom: 1rem;
@@ -552,14 +564,14 @@ body {
 }
 
 .tag__icon {
-  width: 80px;
+  width: 5rem;
   height: auto;
   margin-bottom: auto;
 }
 
-/* ==========================================================================
-   SLIDE 6 - CORRECTION ESPACEMENTS & "à"
-   ========================================================================== */
+/* ============================================================
+   SLIDE 6 - CADENCE DE TRAVAIL
+   ============================================================ */
 
 #slide-6 {
   background-color: var(--vert);
@@ -572,41 +584,39 @@ body {
 }
 
 #slide-6 .slide__title {
-  /* Augmentation de l'espace sous le titre */
   margin-bottom: 12vh;
   margin-top: 0;
   text-align: center;
   width: 100%;
 }
 
-/* Conteneur global */
 .work-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-start; /* Aligne le haut des colonnes */
+  align-items: flex-start;
   gap: 8rem;
   width: 100%;
-  max-width: 1100px;
-  /* On retire la hauteur fixe pour laisser le contenu dicter sa taille */
+  max-width: 68.75rem;
   height: auto;
 }
 
-/* --- CONFIGURATION DES COLONNES --- */
 .col-side {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* CHANGEMENT ICI : On ne pousse plus aux extrémités. 
-       On utilise flex-start + gap pour rapprocher les éléments. */
   justify-content: flex-start;
-  gap: 4rem; /* Espace fixe entre l'horloge et le texte en dessous */
+  gap: 4rem;
 }
 
-/* --- COLONNE GAUCHE --- */
+.col-right {
+  padding-top: 2rem;
+  gap: 6rem;
+}
+
 .clock-wrapper {
-  width: 300px;
-  height: 300px;
+  width: 18.75rem;
+  height: 18.75rem;
   position: relative;
   flex-shrink: 0;
 }
@@ -620,7 +630,6 @@ body {
 .cents-text {
   text-align: center;
   line-height: 1.1;
-  /* Le gap du parent gère l'espacement maintenant */
 }
 
 .cents-line-1 {
@@ -638,23 +647,19 @@ body {
   color: var(--rouge);
   text-transform: uppercase;
 }
+
 .text-yellow {
   color: var(--jaune);
 }
+
 .font-omnes {
   font-family: "Omnes", var(--font-secondary), sans-serif !important;
   font-weight: 800;
 }
+
 .font-novaro {
   font-family: "Novaro", var(--font-primary), sans-serif;
   font-weight: 900;
-}
-
-/* --- COLONNE DROITE --- */
-.col-right {
-  /* On aligne optiquement le texte 75h avec l'horloge */
-  padding-top: 2rem;
-  gap: 6rem; /* Espace entre 75h et les pièces */
 }
 
 .hours-block {
@@ -666,16 +671,15 @@ body {
   color: var(--rouge);
   line-height: 0.8;
   white-space: nowrap;
-  display: flex; /* Flex pour bien aligner le "à" */
-  align-items: flex-start; /* Aligne tout en haut */
+  display: flex;
+  align-items: flex-start;
 }
 
-/* CORRECTION DU "à" */
 .hours-small {
   font-size: 4rem;
   color: var(--jaune);
-  margin: 0 1rem; /* Espace autour du à */
-  margin-top: 10px; /* Petit ajustement pour qu'il ne soit pas trop collé au plafond */
+  margin: 0 1rem;
+  margin-top: 0.625rem;
   line-height: 1;
 }
 
@@ -684,7 +688,7 @@ body {
   color: var(--jaune);
   text-transform: uppercase;
   margin-left: 1rem;
-  align-self: center; /* HEURES reste centré verticalement par rapport aux chiffres */
+  align-self: center;
 }
 
 .hours-sub {
@@ -695,18 +699,17 @@ body {
   text-align: center;
 }
 
-/* Pièces */
 .coins-pile {
   position: relative;
-  width: 250px;
-  height: 150px;
+  width: 15.625rem;
+  height: 9.375rem;
 }
 
 .coin {
   position: absolute;
-  width: 90px;
+  width: 5.625rem;
   opacity: 0;
-  filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0.125rem 0.125rem 0 rgba(0, 0, 0, 0.2));
 }
 
 .coin--1 {
@@ -714,31 +717,35 @@ body {
   left: 10%;
   z-index: 5;
 }
+
 .coin--2 {
-  bottom: 15px;
+  bottom: 0.9375rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 4;
 }
+
 .coin--3 {
-  bottom: 30px;
+  bottom: 1.875rem;
   left: 30%;
   z-index: 3;
 }
+
 .coin--4 {
-  bottom: 45px;
+  bottom: 2.8125rem;
   left: 60%;
   z-index: 2;
 }
+
 .coin--5 {
-  bottom: 10px;
+  bottom: 0.625rem;
   left: 80%;
   z-index: 1;
 }
 
-/* ==========================================================================
-   SLIDE 7 - EAU (Z-index corrigé & Trous bouchés)
-   ========================================================================== */
+/* ============================================================
+   SLIDE 7 - 7000 LITRES D'EAU POUR UN JEAN
+   ============================================================ */
 
 #slide-7 {
   background-color: var(--vert);
@@ -752,70 +759,62 @@ body {
   padding-top: 15vh;
 }
 
-/* Texte du haut */
 .water__top-text {
   text-align: center;
   position: relative;
-  z-index: 40; /* Au-dessus de tout */
+  z-index: 40;
 }
 
 .water__top-text h3 {
   font-family: "Omnes", var(--font-secondary);
-  font-size: 55px;
+  font-size: 3.4375rem;
   font-weight: 800;
   color: var(--jaune);
   line-height: 1.2;
 }
 
-/* --- GESTION DES CALQUES --- */
-
-/* Conteneur générique pour les couches d'eau */
 .water__layer {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 55vh; /* Hauteur de la montée */
-  transform: translateY(110%); /* Caché en bas au début */
+  height: 55vh;
+  transform: translateY(110%);
   pointer-events: none;
 }
 
 .water__layer--back {
   z-index: 10;
 }
+
 .water__jet-container {
   z-index: 20;
-}
-.water__layer--front {
-  z-index: 30;
-}
-
-/* --- LE JET --- */
-.water__jet-container {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
+  width: 5rem;
   height: 100%;
   pointer-events: none;
+}
+
+.water__layer--front {
+  z-index: 30;
 }
 
 .water__jet {
   width: 100%;
   height: 0%;
-  background-color: #0b167d; /* Même couleur que la vague FRONT */
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  background-color: #0b167d;
+  border-bottom-left-radius: 1.25rem;
+  border-bottom-right-radius: 1.25rem;
 }
 
-/* --- LES VAGUES --- */
 .water__wave {
   position: absolute;
   bottom: 0;
-  /* CORRECTION DU TROU : On rend la vague beaucoup plus large que l'écran */
   width: 160%;
-  left: -30%; /* On la centre pour avoir de la marge des deux côtés */
+  left: -30%;
   height: 100%;
 }
 
@@ -826,48 +825,44 @@ body {
 }
 
 .water__wave--back {
-  height: 110%; /* Un peu plus haute pour l'effet de profondeur */
+  height: 110%;
   opacity: 1;
 }
 
-/* Blocs solides pour combler le bas de l'écran sous les SVGs */
 .water__block {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 10px; /* Juste une sécurité, les SVG couvrent normalement tout */
+  height: 0.625rem;
 }
+
 .water__block--back {
   background-color: #151c66;
   height: 20%;
 }
+
 .water__block--front {
   background-color: #0b167d;
   height: 10%;
 }
 
-/* --- TEXTE 7000 LITRES --- */
 .water__bottom-text {
   position: absolute;
   bottom: 20%;
   width: 100%;
   text-align: center;
-  font-family: "Novaro", var(--font-primary); /* Assurez-vous que c'est la bonne police */
-  font-size: 150px; /* Très gros comme sur l'image */
+  font-family: "Novaro", var(--font-primary);
+  font-size: 9.375rem;
   color: var(--jaune);
   z-index: 35;
   line-height: 1;
   opacity: 0;
 }
 
-/* ==========================================================================
+/* ============================================================
    SLIDE 8 - RANA PLAZA
-   ========================================================================== */
-
-/* ==========================================================================
-   SLIDE 8 - RANA PLAZA (Layout Maquette)
-   ========================================================================== */
+   ============================================================ */
 
 #slide-8 {
   background-color: var(--vert);
@@ -876,16 +871,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 5vw; /* Marge sur les côtés */
+  padding: 0 5vw;
 }
 
-/* --- EN-TÊTE --- */
 .rana__header {
   width: 100%;
-  max-width: 1200px; /* Largeur max contenu */
+  max-width: 75rem;
   text-align: left;
   margin-bottom: 2rem;
-  opacity: 0; /* Pour animation */
+  opacity: 0;
 }
 
 .rana__header h3 {
@@ -897,42 +891,39 @@ body {
   margin: 0;
 }
 
-/* --- CONTENU (Immeuble + Stats) --- */
 .rana__content {
   display: flex;
   flex-direction: row;
-  align-items: center; /* Centrage vertical des deux colonnes */
+  align-items: center;
   width: 100%;
-  max-width: 1200px;
-  gap: 5rem; /* Espace entre immeuble et stats */
+  max-width: 75rem;
+  gap: 5rem;
 }
 
-/* Colonne Gauche (Immeuble) */
 .rana__col-left {
-  flex: 0 0 40%; /* Prend environ 40% de la largeur */
+  flex: 0 0 40%;
   display: flex;
-  justify-content: flex-start; /* Aligné à gauche */
+  justify-content: flex-start;
 }
 
 .building__svg {
   width: 100%;
-  max-width: 450px;
+  max-width: 28.125rem;
   height: auto;
   display: block;
 }
 
-/* Colonne Droite (Stats) */
 .rana__col-right {
-  flex: 1; /* Prend le reste de la place */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 2rem; /* Espace entre les deux lignes de stats */
-  opacity: 0; /* Pour animation */
+  gap: 2rem;
+  opacity: 0;
 }
 
 .rana__stat-row {
   display: flex;
-  align-items: baseline; /* Aligne le texte sur la ligne de base */
+  align-items: baseline;
   gap: 1.5rem;
   line-height: 1;
 }
@@ -949,23 +940,14 @@ body {
   text-transform: uppercase;
 }
 
-/* Classes utilitaires Polices */
-.font-novaro {
-  font-family: "Novaro", var(--font-primary), sans-serif;
-  font-weight: 900;
-}
-.font-omnes {
-  font-family: "Omnes", var(--font-secondary), sans-serif !important;
-  font-weight: 800;
-}
-
-/* ==========================================================================
-   SLIDE 9 - RECYCLING
-   ========================================================================== */
+/* ============================================================
+   SLIDE 9 - RECYCLAGE 36,4%
+   ============================================================ */
 
 #slide-9 {
   background-color: #000080;
   color: #ffb6c1;
+  overflow: hidden;
 }
 
 .recycling {
@@ -974,64 +956,144 @@ body {
   align-items: center;
   justify-content: flex-end;
   height: 100%;
-  padding-bottom: 5vh;
+  width: 100%;
   position: relative;
-  width: 90%;
 }
 
 .recycling__falling {
   position: absolute;
-  top: -80vh;
-  left: 10%;
-  width: 80%;
-  height: 80vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
+  z-index: 1;
 }
 
 .recycling__item {
   position: absolute;
-  width: 80px;
+  width: 5.625rem;
+  left: 50%;
+  opacity: 0;
 }
 
 .bins {
   display: flex;
-  gap: 2rem;
+  justify-content: center;
   align-items: flex-end;
+  gap: 3rem;
+  width: 95%;
+  height: 50vh;
+  margin-bottom: 5vh;
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(12.5rem);
+}
+
+.bin-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  position: relative;
+}
+
+.bin-floating-number {
+  font-family: "Novaro", var(--font-primary);
+  font-size: 18.75rem;
+  color: var(--rouge);
+  line-height: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  padding-bottom: 2.5rem;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.percent-symbol {
+  font-size: 3.4375rem;
+  margin-left: 0.9375rem;
+  color: #ffb6c1;
 }
 
 .bin {
-  width: 350px;
-  height: 250px;
   background: #ffb6c1;
-  border-radius: 20px;
+  border-radius: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  box-shadow: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.4);
+  height: 100%;
+}
+
+.bin::before,
+.bin::after {
+  content: "";
+  position: absolute;
+  bottom: -1.875rem;
+  width: 3.75rem;
+  height: 3.75rem;
+  background-color: var(--rouge);
+  border: 0.375rem solid var(--rouge);
+  border-radius: 50%;
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.bin::before {
+  left: 15%;
+}
+
+.bin::after {
+  right: 15%;
+}
+
+.bin--left {
+  flex: 1;
+}
+
+.bin--right {
+  width: 100%;
+  height: 100%;
 }
 
 .bin__logo {
-  width: 50%;
+  width: 40%;
+  max-width: 15.625rem;
   fill: var(--rouge);
 }
 
 .bin__content {
   text-align: center;
   color: var(--rouge);
-  padding: 2rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
-.bin__percent {
-  font-size: 6rem;
-  font-weight: 900;
+.bin__content p {
+  font-family: "Omnes", var(--font-secondary);
+  font-size: 3.4375rem;
+  font-weight: 800;
+  line-height: 1.1;
   margin: 0;
-  line-height: 0.8;
 }
 
-/* ==========================================================================
-   SLIDE 10 - AFRIque
-   ========================================================================== */
+/* ============================================================
+   SLIDE 10 - AFRIQUE ET GHANA
+   ============================================================ */
 
 #slide-10 {
   background-color: #000080;
@@ -1081,8 +1143,8 @@ body {
 
 .map {
   position: relative;
-  width: 450px;
-  height: 450px;
+  width: 28.125rem;
+  height: 28.125rem;
   opacity: 0;
 }
 
@@ -1095,13 +1157,13 @@ body {
   position: absolute;
   top: 45%;
   left: 15%;
-  width: 50px;
+  width: 3.125rem;
   opacity: 0;
 }
 
-/* ==========================================================================
-   SLIDE 11 - FACTORY
-   ========================================================================== */
+/* ============================================================
+   SLIDE 11 - USINE ET POLLUTION
+   ============================================================ */
 
 #slide-11 {
   background-color: var(--rouge);
@@ -1110,8 +1172,8 @@ body {
 
 .factory {
   position: relative;
-  width: 600px;
-  height: 700px;
+  width: 37.5rem;
+  height: 43.75rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -1130,12 +1192,12 @@ body {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 300px;
-  height: 300px;
+  width: 18.75rem;
+  height: 18.75rem;
   z-index: 1;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  gap: 5px;
+  gap: 0.3125rem;
 }
 
 .smoke__dot {
@@ -1164,9 +1226,9 @@ body {
   line-height: 0.8;
 }
 
-/* ==========================================================================
-   SLIDE 12 - HATS
-   ========================================================================== */
+/* ============================================================
+   SLIDE 12 - CONSEILS (CHAPEAUX)
+   ============================================================ */
 
 #slide-12 {
   background-color: var(--rouge);
@@ -1198,8 +1260,8 @@ body {
 
 .hats__stack {
   position: relative;
-  width: 200px;
-  height: 400px;
+  width: 12.5rem;
+  height: 25rem;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
@@ -1209,9 +1271,9 @@ body {
 .hats__item {
   width: 100%;
   height: auto;
-  margin-top: -40px;
+  margin-top: -2.5rem;
   opacity: 0;
-  transform: translateY(-200px);
+  transform: translateY(-12.5rem);
 }
 
 .hats__tips {
@@ -1238,13 +1300,13 @@ body {
 .hats__tip {
   font-size: 1.5rem;
   font-weight: bold;
-  max-width: 250px;
+  max-width: 15.625rem;
   opacity: 0;
 }
 
-/* ==========================================================================
-   SLIDE 13 - FINAL
-   ========================================================================== */
+/* ============================================================
+   SLIDE 13 - CONCLUSION
+   ============================================================ */
 
 #slide-13 {
   background-color: var(--bleu);
@@ -1263,30 +1325,20 @@ body {
 }
 
 .final__line {
-  width: 100px;
-  height: 5px;
+  width: 6.25rem;
+  height: 0.3125rem;
   background: var(--rouge);
   margin: 2rem auto;
 }
 
-/* ==========================================================================
-   GRID POSITIONING
-   ========================================================================== */
+/* ============================================================
+   POSITIONNEMENT GRILLE (SLIDES DANS LA GRILLE 8x8)
+   ============================================================ */
 
 #slide-0 {
   grid-area: 1 / 1;
-  background: radial-gradient(
-      circle at 20% 20%,
-      var(--jaune) 0%,
-      transparent 40%
-    ),
-    linear-gradient(
-      135deg,
-      var(--jaune),
-      var(--rouge),
-      var(--vert),
-      var(--bleu)
-    );
+  background: radial-gradient(circle at 20% 20%, var(--jaune) 0%, transparent 40%),
+    linear-gradient(135deg, var(--jaune), var(--rouge), var(--vert), var(--bleu));
 }
 
 #slide-1 {
@@ -1332,7 +1384,7 @@ body {
 }
 
 #slide-8 {
-  grid-area: 5 / 5;
+  grid-area: 6 / 4;
   background-color: var(--vert);
   color: var(--jaune);
 }

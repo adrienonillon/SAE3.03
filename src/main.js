@@ -5,10 +5,7 @@ import lottie from "lottie-web";
 
 gsap.registerPlugin(ScrollTrigger);
 
-/**
- * Animation du compteur numérique sur la slide 1
- * Anime de 0 à 7000 avec formatage des milliers
- */
+
 function animateCounter() {
   const counter = { value: 0 };
   const counterElement = document.querySelector("#counter-7000");
@@ -35,11 +32,6 @@ function animateCounter() {
   });
 }
 
-/**
- * Configuration principale du scroll et de toutes les animations des slides
- * Utilise GSAP Timeline avec ScrollTrigger pour synchroniser les animations
- * Barre de progression mise à jour en fonction du scroll
- */
 function setupScrollFlow() {
   const container = document.querySelector(".scroll-container");
   const fallingItems = document.querySelectorAll(".falling__item");
@@ -65,7 +57,9 @@ function setupScrollFlow() {
     },
   });
 
-  // Slide 1: Vêtements tombent avec compteur
+    /* ============================================================
+      SLIDE 1 - VÊTEMENTS QUI TOMBENT + COMPTEUR 7000
+      ============================================================ */
   tl.addLabel("slide1");
   tl.to(container, { x: 0, y: "-100vh", ease: "none" }, "slide1");
   tl.fromTo(
@@ -87,7 +81,9 @@ function setupScrollFlow() {
     "slide1+=0.3"
   );
 
-  // Slide 2: Grille de t-shirts 7/10
+    /* ============================================================
+      SLIDE 2 - GRILLE T-SHIRTS 7/10
+      ============================================================ */
   tl.to(container, { x: "-100vw", y: "-100vh", ease: "none" });
   tl.addLabel("slide2-anim");
   tl.to(
@@ -101,34 +97,38 @@ function setupScrollFlow() {
     ">-=0.3"
   );
 
-  // // Slide 3: Animation fermeture éclair
-  tl.to(container, { x: "-100vw", y: "-200vh", ease: "none" });
-  tl.addLabel("slide3-anim");
-  tl.fromTo(
-    ".zipper__pull",
-    { top: "-15vh" },
-    { top: "115vh", ease: "none" },
-    "slide3-anim"
-  );
-  tl.fromTo(
-    ".zipper__panel--left",
-    { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" },
-    { clipPath: "polygon(0 0, 0% 0, 60% 100%, 0% 100%)", ease: "none" },
-    "slide3-anim"
-  );
-  tl.fromTo(
-    ".zipper__panel--right",
-    { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" },
-    { clipPath: "polygon(100% 0, 100% 0, 100% 100%, 40% 100%)", ease: "none" },
-    "slide3-anim"
-  );
-  tl.to(
-    "#slide-3 .slide__content",
-    { opacity: 0, scale: 0.9, duration: 0.5 },
-    "slide3-anim"
-  );
+    /* ============================================================
+      SLIDE 3 - FERMETURE ÉCLAIR 7200 VÊTEMENTS
+      ============================================================ */
+  // tl.to(container, { x: "-100vw", y: "-200vh", ease: "none" });
+  // tl.addLabel("slide3-anim");
+  // tl.fromTo(
+  //   ".zipper__pull",
+  //   { top: "-15vh" },
+  //   { top: "115vh", ease: "none" },
+  //   "slide3-anim"
+  // );
+  // tl.fromTo(
+  //   ".zipper__panel--left",
+  //   { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" },
+  //   { clipPath: "polygon(0 0, 0% 0, 60% 100%, 0% 100%)", ease: "none" },
+  //   "slide3-anim"
+  // );
+  // tl.fromTo(
+  //   ".zipper__panel--right",
+  //   { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" },
+  //   { clipPath: "polygon(100% 0, 100% 0, 100% 100%, 40% 100%)", ease: "none" },
+  //   "slide3-anim"
+  // );
+  // tl.to(
+  //   "#slide-3 .slide__content",
+  //   { opacity: 0, scale: 0.9, duration: 0.5 },
+  //   "slide3-anim"
+  // );
 
-  // Slide 4: Armoire qui s'ouvre avec vêtements
+    /* ============================================================
+      SLIDE 4 - ARMOIRE 50% VÊTEMENTS INUTILISÉS
+      ============================================================ */
   tl.to(container, { x: "-100vw", y: "-300vh", ease: "none" });
   tl.addLabel("slide4-anim");
   tl.fromTo(
@@ -154,7 +154,9 @@ function setupScrollFlow() {
     "slide4-anim+=0.8"
   );
 
-  // Slide 5: Graphique en étiquettes
+    /* ============================================================
+      SLIDE 5 - GRAPHIQUE ÉTIQUETTES (4ÈME IMPACT)
+      ============================================================ */
   tl.to(container, { x: "-200vw", y: "-300vh", ease: "none" });
   tl.addLabel("slide5-anim");
   tl.to(
@@ -179,16 +181,18 @@ function setupScrollFlow() {
     "slide5-anim+=0.5"
   );
 
-  // Slide 6: Horloge et pièces tombantes
+    /* ============================================================
+      SLIDE 6 - CADENCE DE TRAVAIL (HORLOGE + PIÈCES)
+      ============================================================ */
   tl.to(container, { x: "-300vw", y: "-300vh", ease: "none" });
   tl.addLabel("slide6-anim");
 
-  const clockDuration = 3; // Durée commune pour la synchronisation
+  const clockDuration = 3;
 
   tl.to(
     ".hand-minute",
     {
-      rotation: 720, // 2 tours
+      rotation: 720,
       duration: clockDuration,
       ease: "power1.inOut",
       transformOrigin: "bottom center",
@@ -210,14 +214,13 @@ function setupScrollFlow() {
   tl.to(
     ".clock-pie",
     {
-      strokeDashoffset: 300, // On arrête le remplissage coordonné avec l'aiguille
+      strokeDashoffset: 300,
       duration: clockDuration,
       ease: "power1.inOut",
     },
     "slide6-anim"
   );
 
-  // Animation des pièces qui tombent
   tl.fromTo(
     ".coin",
     { y: -600, opacity: 0, rotation: -180 },
@@ -232,20 +235,20 @@ function setupScrollFlow() {
     "slide6-anim+=0.5"
   );
 
-  // Slide 7: Remplissage d'eau
+    /* ============================================================
+      SLIDE 7 - 7 000 LITRES D'EAU
+      ============================================================ */
   tl.to(container, { x: "-300vw", y: "-400vh", ease: "none" });
   tl.addLabel("slide7-anim");
 
-  // 1. Le jet tombe
   tl.to(
     ".water__jet",
     { height: "100%", duration: 0.8, ease: "power1.in" },
     "slide7-anim"
   );
 
-  // 2. L'océan monte (Les deux couches en même temps)
   tl.to(
-    ".water__layer", // Cible les deux classes .water__layer--front et --back
+    ".water__layer",
     {
       y: "0%",
       duration: 2.5,
@@ -254,16 +257,12 @@ function setupScrollFlow() {
     "slide7-anim+=0.5"
   );
 
-  // 3. Le texte apparaît
   tl.to(
     ".water__bottom-text",
     { opacity: 1, duration: 1, y: -20 },
     "slide7-anim+=1.5"
   );
 
-  // --- ANIMATION CONTINUE DES VAGUES (Boucle) ---
-
-  // Vague avant
   gsap.to(".water__wave--front", {
     x: "-5%",
     duration: 1.5,
@@ -272,7 +271,6 @@ function setupScrollFlow() {
     ease: "sine.inOut",
   });
 
-  // Vague arrière (mouvement inverse pour plus de naturel)
   gsap.to(".water__wave--back", {
     x: "5%",
     duration: 1,
@@ -281,12 +279,13 @@ function setupScrollFlow() {
     ease: "sine.inOut",
   });
 
-  // Slide 8: Rana Plaza - effondrement
+    /* ============================================================
+      SLIDE 8 - RANA PLAZA (EFFONDREMENT)
+      ============================================================ */
 
-  tl.to(container, { x: "-400vw", y: "-400vh", ease: "none" });
+  tl.to(container, { x: "-300vw", y: "-500vh", ease: "none" });
   tl.addLabel("slide8-anim");
 
-  // 1. L'immeuble sort
   tl.fromTo(
     ".building__svg", 
     { y: "100%" }, 
@@ -325,7 +324,6 @@ function setupScrollFlow() {
     "slide8-anim+=1.5"
   );
 
-  // 4. Tremblement
   tl.to(
     ".building__svg", 
     { 
@@ -337,7 +335,6 @@ function setupScrollFlow() {
     ">"
   );
 
-  // 5. Chute
   tl.to(
     ".building__svg", 
     {
@@ -350,41 +347,58 @@ function setupScrollFlow() {
     ">"
   );
 
-  // Slide 9: Recyclage
+    /* ============================================================
+      SLIDE 9 - RECYCLAGE 36,4%
+      ============================================================ */
   tl.to(container, { x: "-400vw", y: "-500vh", ease: "none" });
   tl.addLabel("slide9-anim");
-  tl.fromTo(
-    ".recycling__item--1",
-    { y: 0, x: 100 },
-    { y: 650, x: -150, rotation: 360, duration: 2, ease: "power1.in" },
+  tl.to(
+    ".bins",
+    { y: 0, opacity: 1, duration: 1, ease: "power3.out" },
     "slide9-anim"
   );
-  tl.fromTo(
-    ".recycling__item--2",
-    { y: 0, x: -50 },
-    { y: 600, x: -50, rotation: -200, duration: 1.8, ease: "power1.in" },
-    "slide9-anim+=0.2"
-  );
-  tl.fromTo(
-    ".recycling__item--3",
-    { y: 0, x: 0 },
-    { y: 680, x: 100, rotation: 180, duration: 2.2, ease: "power1.in" },
-    "slide9-anim+=0.1"
-  );
-  tl.fromTo(
-    ".recycling__item--4",
-    { y: 0, x: 200 },
-    { y: 620, x: 180, rotation: 90, duration: 1.9, ease: "power1.in" },
-    "slide9-anim+=0.3"
-  );
-  tl.fromTo(
-    ".recycling__item--5",
-    { y: 0, x: -150 },
-    { y: 660, x: -120, rotation: -150, duration: 2.1, ease: "power1.in" },
-    "slide9-anim+=0.2"
-  );
+  const recyclingItems = document.querySelectorAll(".recycling__item");
 
-  // Slide 10: Carte Afrique et Ghana
+  recyclingItems.forEach((item, index) => {
+    const delay = gsap.utils.random(0.5, 2.5);
+    const itemTl = gsap.timeline({ delay: delay });
+    const side = Math.random() < 0.5 ? -1 : 1;
+    const minDist = 100;
+    const maxDist = 500;
+    const randomX = side * gsap.utils.random(minDist, maxDist);
+
+    itemTl.set(item, {
+      y: "-30vh",
+      xPercent: -50,
+      x: randomX,
+      rotation: gsap.utils.random(-180, 180),
+      opacity: 1,
+      scale: gsap.utils.random(0.8, 1.2),
+    });
+    itemTl.to(item, {
+      y: "50vh",
+      rotation: "+=random(180, 360)",
+      duration: gsap.utils.random(1, 1.5),
+      ease: "power1.in",
+    });
+    itemTl.to(
+      item,
+      {
+        y: "80vh",
+        opacity: 0,
+        scale: 0.5,
+        duration: 0.5,
+        ease: "power1.out",
+      }
+    );
+
+    tl.add(itemTl, "slide9-anim");
+  });
+
+    /* ============================================================
+      SLIDE 10 - AFRIQUE / GHANA
+      ============================================================ */
+  
   tl.to(container, { x: "-500vw", y: "-500vh", ease: "none" });
   tl.addLabel("slide10-anim");
   tl.to(".map", { opacity: 1, duration: 1 }, "slide10-anim");
@@ -392,7 +406,9 @@ function setupScrollFlow() {
   tl.to(".map__overlay", { opacity: 1, duration: 0.5 }, "slide10-anim+=1.5");
   tl.to(".africa__block--2", { opacity: 1, duration: 1 }, "slide10-anim+=1.5");
 
-  // Slide 11: Usine avec fumée en points
+    /* ============================================================
+      SLIDE 11 - USINE (FUMÉE)
+      ============================================================ */
   tl.to(container, { x: "-600vw", y: "-500vh", ease: "none" });
   tl.addLabel("slide11-anim");
   tl.to(
@@ -412,7 +428,9 @@ function setupScrollFlow() {
   );
   tl.to(".factory__text", { opacity: 1, y: 0, duration: 1 }, "slide11-anim+=2");
 
-  // Slide 12: Chapeaux empilés avec conseils
+    /* ============================================================
+      SLIDE 12 - CONSEILS (CHAPEAUX)
+      ============================================================ */
   tl.to(container, { x: "-600vw", y: "-400vh", ease: "none" });
   tl.addLabel("slide12-anim");
   const hatTl = gsap.timeline();
@@ -459,7 +477,9 @@ function setupScrollFlow() {
   );
   tl.add(hatTl, "slide12-anim");
 
-  // Slide 13: Conclusion
+    /* ============================================================
+      SLIDE 13 - CONCLUSION
+      ============================================================ */
   tl.to(container, { x: "-600vw", y: "-300vh", ease: "none" });
   tl.addLabel("slide13-anim");
   tl.to(
