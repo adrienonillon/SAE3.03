@@ -1,14 +1,5 @@
 @import "./styles/base.css";
 
-body {
-  font-family: "Montserrat", sans-serif;
-}
-
-/* ============================================================
-   COMPOSANTS GLOBAUX
-   ============================================================ */
-
-/* Barre de progression */
 .progress {
   position: fixed;
   bottom: 1.25rem;
@@ -28,7 +19,6 @@ body {
   border-radius: 0.625rem;
 }
 
-/* Conteneur de scroll */
 .scroll-container {
   display: grid;
   grid-template-columns: repeat(8, 100vw);
@@ -41,7 +31,6 @@ body {
   will-change: transform;
 }
 
-/* Slide générique */
 .slide {
   width: 100vw;
   height: 100vh;
@@ -183,7 +172,7 @@ body {
 }
 
 /* ============================================================
-   SLIDE 1 - STATISTIQUES VÊTEMENTS
+   SLIDE 1 
    ============================================================ */
 
 #slide-1 {
@@ -207,7 +196,6 @@ body {
   color: var(--bleu);
 }
 
-/* Animation d'éléments qui tombent */
 .falling {
   position: absolute;
   top: 0;
@@ -230,7 +218,7 @@ body {
 }
 
 /* ============================================================
-   SLIDE 2 - RATIO 7/10 LOW COST
+   SLIDE 2 
    ============================================================ */
 
 #slide-2 {
@@ -280,7 +268,7 @@ body {
 }
 
 /* ============================================================
-   SLIDE 3 - 7200 VÊTEMENTS PAR JOUR
+   SLIDE 3 
    ============================================================ */
 
 #slide-3 {
@@ -325,7 +313,7 @@ body {
 }
 
 /* ============================================================
-   SLIDE 4 - 50% DES VÊTEMENTS DANS LES PLACARDS
+   SLIDE 4 
    ============================================================ */
 
 #slide-4 {
@@ -1337,8 +1325,18 @@ body {
 
 #slide-0 {
   grid-area: 1 / 1;
-  background: radial-gradient(circle at 20% 20%, var(--jaune) 0%, transparent 40%),
-    linear-gradient(135deg, var(--jaune), var(--rouge), var(--vert), var(--bleu));
+  background: radial-gradient(
+      circle at 20% 20%,
+      var(--jaune) 0%,
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      var(--jaune),
+      var(--rouge),
+      var(--vert),
+      var(--bleu)
+    );
 }
 
 #slide-1 {
