@@ -1,14 +1,20 @@
-/* Variables CSS */
 :root {
-    /* Couleurs */
-    --jaune: rgb(251, 210, 54);
-    --rouge: rgb(255, 65, 5);
-    --vert: rgb(0, 106, 93);
-    --bleu: rgb(0, 20, 128);
-    --rose: rgb(245, 168, 193);
+
+    --c-jaune: rgb(251, 210, 54);
+    --c-rouge: rgb(255, 65, 5);
+    --c-vert:  rgb(0, 106, 93);
+    --c-bleu:  rgb(0, 20, 128);
+    --c-rose:  rgb(245, 168, 193);
+    --c-blanc: #ffffff;
+    --c-noir:  #000000;
 
 
-    --font-primary: 'Novaro', sans-serif;
-    --font-secondary: 'Omnes', sans-serif;
-        
+    --font-titre: 'Novaro', sans-serif;
+    --font-texte: 'Omnes', sans-serif;
+    
+
+    --sz-titre-geant: 8rem;
+    --sz-titre: 4rem;
+    --sz-sous-titre: 2.5rem;
+    --sz-texte: 1.5rem;
 }

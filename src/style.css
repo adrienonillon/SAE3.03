@@ -1,14 +1,18 @@
 @import "./styles/base.css";
 
-html, body {
+
+
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  overscroll-behavior: none; /* Empêche le rebond élastique */
+  overscroll-behavior: none;
+  font-family: var(--font-texte);
 }
 
-.progress {
+.barre-progression {
   position: fixed;
   bottom: 1.25rem;
   left: 50%;
@@ -20,34 +24,35 @@ html, body {
   z-index: 100;
 }
 
-.progress__bar {
+.barre-progression__jauge {
   height: 100%;
   width: 0%;
-  background: #fff;
+  background: var(--c-blanc);
   border-radius: 0.625rem;
 }
 
-.pin-wrapper {
+.zone-scroll-fixe {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   position: relative;
 }
 
-.scroll-container {
+.grille-diapositives {
   display: grid;
   grid-template-columns: repeat(8, 100vw);
   grid-template-rows: repeat(10, 100vh);
   width: 800vw;
   height: 1000vh;
-  /* Changé de fixed à relative */
   position: relative;
   top: 0;
   left: 0;
   will-change: transform;
 }
 
-.slide {
+/* --- STYLE DE BASE DIAPOSITIVE --- */
+
+.diapositive {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -56,239 +61,102 @@ html, body {
   justify-content: center;
   position: relative;
   overflow: hidden;
+  background-color: var(--c-jaune); /* Défaut */
+  color: var(--c-bleu);
 }
 
-.slide__content {
+/* Conteneurs génériques */
+.contenu-diapo {
   z-index: 10;
   padding: 2rem;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(0.5rem);
-  border-radius: 0.9375rem;
+  border-radius: 1rem;
   text-align: center;
 }
 
-.slide__content--transparent {
+.contenu-transparent {
   background: transparent;
   backdrop-filter: none;
   padding: 3rem;
 }
 
-.slide__content--hero {
-  background: transparent;
-  backdrop-filter: none;
-}
-
-.slide__content--reveal {
+.animation-revelation {
   opacity: 0;
-  transform: translateY(1.875rem);
+  transform: translateY(2rem);
   background: transparent;
   backdrop-filter: none;
 }
 
-.slide__col {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.slide__col--text {
-  justify-content: flex-start;
-  padding-left: 12rem;
-}
-
-.slide__col--visual {
-  justify-content: center;
-}
-
-.slide__layout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  width: 100%;
-}
-
-.slide__logo {
-  max-width: 100%;
-  height: auto;
-}
-
-.slide__title {
-  font-size: 4rem;
-  font-weight: bold;
-  margin-bottom: 3rem;
-}
-
-.slide__number {
-  font-family: var(--font-primary);
-  font-size: 18rem;
-  font-weight: 900;
-  color: var(--rouge);
-}
-
-.slide__number--huge {
-  font-family: var(--font-primary);
-  font-size: 18rem;
-  font-weight: 900;
-  color: var(--rouge);
-}
-
-.slide__number--large {
-  font-size: 12rem;
-  line-height: 1;
+/* Typographie Générique */
+h2,
+h3 {
   margin: 0;
-  color: var(--bleu);
-  font-weight: 900;
+  line-height: 1.1;
 }
-
-.slide__label {
-  font-family: var(--font-secondary);
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: var(--bleu);
-}
-
-.slide__separator {
-  font-family: var(--font-primary);
-  font-size: 9.375rem;
-  font-weight: 900;
-  color: var(--rouge);
-}
-
-.slide__text {
-  font-family: var(--font-secondary);
-  font-size: 3.5rem;
-  font-weight: 700;
+p {
   margin: 0.5rem 0;
-  color: var(--bleu);
-  text-align: center;
-}
-
-.slide__percent {
-  font-family: var(--font-secondary);
-  font-size: 3.5rem;
   font-weight: 700;
-  color: var(--bleu);
-}
-
-.slide__desc {
-  font-family: var(--font-secondary);
   font-size: 3.5rem;
-  font-weight: 700;
-  color: var(--bleu);
 }
 
-.slide__subtitle {
-  font-size: 2rem;
-  color: var(--bleu);
-}
+/* --- SLIDES SPÉCIFIQUES --- */
 
-/* ============================================================
-   SLIDE 0 - ACCUEIL (TYPOGRAPHIE)
-   ============================================================ */
-
-#slide-0 {
+/* #accueil */
+#accueil {
   grid-area: 1 / 1;
-  /* COULEUR PLATE JAUNE (Pas de dégradé) */
-  background: #FBD236 !important; 
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background: var(--c-jaune) !important;
 }
 
-/* Forme verte en bas */
-.intro-wave {
+.vague-decor {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 45%; /* Ajustement de la hauteur du vert */
+  height: 45%;
   z-index: 1;
 }
 
-.intro-wave svg {
+.vague-decor svg {
   width: 100%;
   height: 100%;
   display: block;
 }
 
-/* Conteneur principal */
-.intro-content-full {
+.entete-accueil {
   position: relative;
   z-index: 10;
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 8vh 5vw;
-  box-sizing: border-box;
-}
-
-/* --- TITRE (HAUT) --- */
-.intro-top {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 5vh; /* Pousse un peu vers le haut */
+  margin-bottom: 5vh;
 }
 
-.intro-title-main {
-  font-family: "Novaro", var(--font-primary);
-  font-size: 8rem; /* Titre très gros */
-  color: #151C66; /* Bleu foncé */
+.titre-principal {
+  font-family: var(--font-titre);
+  font-size: var(--sz-titre-geant);
+  color: #151c66;
   line-height: 0.85;
   text-transform: uppercase;
   text-align: center;
-  margin: 0;
 }
 
-.intro-subtitle {
-  font-family: "Omnes", var(--font-secondary);
-  font-size: 2.5rem;
-  color: #151C66;
+.sous-titre-principal {
+  font-family: var(--font-texte);
+  font-size: var(--sz-sous-titre);
+  color: #151c66;
   font-weight: 800;
   margin-top: 2rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-
-/* ============================================================
-   SLIDE 1 
-   ============================================================ */
-
-#slide-1 {
-  background-color: var(--jaune);
-  color: var(--bleu);
+/* #consommation */
+#consommation {
+  grid-area: 2 / 1;
 }
 
-#slide-1 h2 {
-  line-height: 0.9;
-  margin: 0;
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-}
-
-#slide-1 p {
-  font-family: var(--font-secondary);
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-top: 1rem;
-  color: var(--bleu);
-}
-
-.falling {
+.conteneur-chute {
   position: absolute;
   top: 0;
   left: 0;
@@ -298,82 +166,92 @@ html, body {
   z-index: 1;
 }
 
-.falling__item {
+.objet-chute {
   position: absolute;
   top: -40vh;
   min-width: 6.25rem;
   z-index: 5;
 }
 
-.falling__item--front {
+.objet-premier-plan {
   z-index: 15;
 }
 
-/* ============================================================
-   SLIDE 2 
-   ============================================================ */
-
-#slide-2 .slide__number {
-  font-size: 14rem; /* Réduit (était 18rem par défaut) */
+.chiffre-cle {
+  font-family: var(--font-titre);
+  font-size: 18rem;
+  font-weight: 900;
+  color: var(--c-rouge);
+}
+.label-cle {
+  font-family: var(--font-texte);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--c-bleu);
 }
 
-#slide-2 .slide__separator {
-  font-size: 8rem; /* Réduit proportionnellement */
+/* #qualite */
+#qualite {
+  grid-area: 2 / 2;
 }
 
-/* Optionnel : Ajuster les marges du titre h2 dans la slide 2 pour gagner encore de la place */
-#slide-2 h2 {
+.disposition-verticale {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin: 0 0 1rem 0; /* Marges ajustées */
-  line-height: 1;
+  gap: 3rem;
 }
 
-#slide-2 .slide__content {
-  background: transparent;
-  backdrop-filter: none;
-}
-
-.tshirts {
+.groupe-tshirts {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
-
-.tshirts__row {
+.rangee-tshirts {
   display: flex;
   gap: 2rem;
   justify-content: center;
-  align-items: center;
 }
 
-.tshirts__icon {
+.icone-tshirt {
   width: 8.75rem;
   height: auto;
   opacity: 0;
   transform: scale(0.8);
 }
-
-.tshirts__icon--blue {
+.icone-bleu {
   filter: brightness(0.8) sepia(1) hue-rotate(180deg) saturate(3);
 }
-
-.tshirts__icon--beige {
+.icone-beige {
   filter: sepia(1) saturate(0.5);
 }
 
-/* ============================================================
-   SLIDE 3 - 7200 VETEMENTS (FAST FASHION)
-   ============================================================ */
-
-#slide-3 {
-  background-color: var(--jaune);
-  color: var(--bleu);
-  grid-area: 3 / 2; 
+.chiffre-moyen {
+  font-family: var(--font-titre);
+  font-size: 12rem;
+  font-weight: 900;
+  color: var(--c-bleu);
+  line-height: 1;
+}
+.separateur {
+  font-family: var(--font-titre);
+  font-size: 9rem;
+  font-weight: 900;
+  color: var(--c-rouge);
+}
+.texte-fort {
+  font-size: 3.5rem;
+  color: var(--c-bleu);
+  text-align: center;
 }
 
-.ff-container {
+/* #fast-fashion */
+#fast-fashion {
+  grid-area: 3 / 2;
+  color: var(--c-rouge);
+}
+
+.conteneur-central {
   position: relative;
   width: 100%;
   height: 100%;
@@ -382,104 +260,100 @@ html, body {
   justify-content: center;
 }
 
-.ff-shape {
+.forme-laterale {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 40%; 
+  width: 40%;
   height: 100%;
   z-index: 1;
 }
-
-.ff-shape--left {
-  left: 0;
-}
-
-.ff-shape--right {
-  right: 0;
-}
-
-.ff-shape svg {
+.forme-laterale svg {
   width: 100%;
   height: 100%;
   display: block;
 }
+.forme-gauche {
+  left: 0;
+}
+.forme-droite {
+  right: 0;
+}
 
-.ff-content {
+.bloc-info-central {
   position: relative;
   z-index: 10;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
-.ff-label {
-  font-family: "Omnes", var(--font-secondary);
+.label-chapeau {
   font-size: 2.5rem;
   font-weight: 900;
-  color: var(--rouge);
-  text-transform: uppercase;
-  margin: 0;
   letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
-
-.ff-number {
-  font-family: "Novaro", var(--font-primary);
-  font-size: 15rem; 
-  color: #312782; 
+.chiffre-geant {
+  font-family: var(--font-titre);
+  font-size: 15rem;
   font-weight: 900;
   line-height: 1;
-  margin: -1rem 0; 
+  color: #312782;
+  margin: -1rem 0;
 }
-
-.ff-text {
-  font-family: "Omnes", var(--font-secondary);
+.texte-focus {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #312782; 
+  color: #312782;
   line-height: 1.2;
-  margin: 0;
 }
 
-/* ============================================================
-   SLIDE 4 
-   ============================================================ */
-
-#slide-4 {
-  background-color: var(--jaune);
-  color: var(--bleu);
+/* #armoire */
+#armoire {
+  grid-area: 4 / 2;
   display: flex;
   flex-direction: row;
 }
 
-.wardrobe__text {
-  text-align: left;
-  opacity: 0;
-  transform: translateX(-1.875rem);
+.colonne-texte {
+  width: 50%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  padding-left: 12rem;
+}
+.colonne-visuel {
+  width: 50%;
+  height: 100%;
+  display: flex;
   justify-content: center;
-}
-
-.wardrobe__text .slide__number {
-  line-height: 0.8; 
-  margin-bottom: 1rem;
-}
-
-.wardrobe__text .slide__desc {
-  margin-top: 0;
-}
-
-.wardrobe {
+  align-items: center;
   position: relative;
-  width: 34.375rem;
-  height: 40.625rem;
+}
+
+.bloc-texte-gauche {
+  opacity: 0;
+  transform: translateX(-2rem);
+}
+.chiffre-rouge {
+  font-family: var(--font-titre);
+  font-size: 18rem;
+  font-weight: 900;
+  color: var(--c-rouge);
+}
+.symbole-pourcent {
+  font-family: var(--font-texte);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--c-bleu);
+}
+
+.conteneur-armoire {
+  position: relative;
+  width: 34rem;
+  height: 40rem;
   overflow: hidden;
 }
-
-.wardrobe__door {
+.porte-armoire {
   position: absolute;
   left: 0;
   width: 100%;
@@ -487,34 +361,29 @@ html, body {
   overflow: hidden;
   z-index: 10;
 }
-
-.wardrobe__door--top {
+.porte-haut {
   top: 0;
 }
-
-.wardrobe__door--bottom {
+.porte-bas {
   bottom: 0;
 }
-
-.wardrobe__img {
+.img-porte {
   position: absolute;
   left: 0;
   width: 100%;
   height: 200%;
   object-fit: contain;
 }
-
-.wardrobe__img--top {
+.img-porte-haut {
   top: 0;
   object-position: top center;
 }
-
-.wardrobe__img--bottom {
+.img-porte-bas {
   bottom: 0;
   object-position: bottom center;
 }
 
-.wardrobe__interior {
+.interieur-armoire {
   position: absolute;
   top: 50%;
   left: 0;
@@ -523,94 +392,73 @@ html, body {
   z-index: 5;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  overflow: visible;
-  padding-top: 2rem;
   gap: 2rem;
+  padding-top: 2rem;
 }
-
-.wardrobe__clothes {
-  width: 6.25rem;
+.vetement-interieur {
+  width: 6rem;
   position: absolute;
-  top: -9.375rem;
+  top: -9rem;
 }
-
-.wardrobe__clothes--1 {
+.v-pos-1 {
   left: 32%;
   transform: translateX(-50%);
 }
-
-.wardrobe__clothes--2 {
+.v-pos-2 {
   left: 50%;
   transform: translateX(-50%);
 }
-
-.wardrobe__clothes--3 {
+.v-pos-3 {
   left: 70%;
   transform: translateX(-50%);
 }
 
-/* ============================================================
-   SLIDE 5 - 4ÈME SOURCE D'IMPACT ENVIRONNEMENTAL
-   ============================================================ */
-
-#slide-5 {
+/* #impact-env */
+#impact-env {
+  grid-area: 4 / 3;
   background-color: #008080;
-  color: var(--jaune);
-  padding: 2vh 2vw 0 2vw;
-  align-items: center;
+  color: var(--c-jaune);
 }
 
-.chart {
+.graphique {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
+  padding: 0 2vw;
 }
-
-.chart__header {
+.entete-graphique {
   position: absolute;
   top: 2vh;
   left: 5vw;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   gap: 1.25rem;
 }
-
-.chart__title {
+.titre-graphique {
   text-align: right;
-  font-family: "Omnes", var(--font-secondary);
-  font-size: 3.4375rem;
+  font-size: 3.4rem;
   font-weight: 800;
   color: #fdd835;
-  line-height: 1.1;
 }
-
-.chart__ranking {
+.rang-graphique {
   display: flex;
   align-items: baseline;
-  line-height: 1;
 }
-
-.chart__rank {
-  font-family: "Novaro", var(--font-primary);
-  font-size: 18.75rem;
-  font-weight: 900;
+.chiffre-rang {
+  font-family: var(--font-titre);
+  font-size: 18rem;
   color: #e53935;
 }
-
-.chart__suffix {
-  font-family: var(--font-secondary);
+.suffixe-rang {
   font-size: 2.5rem;
   font-weight: 900;
   color: #fdd835;
-  margin-left: 0.3125rem;
 }
 
-.chart__bars {
+.zone-barres {
   display: flex;
   align-items: flex-end;
   justify-content: space-evenly;
@@ -618,470 +466,324 @@ html, body {
   width: 100%;
   gap: 1vw;
 }
-
-.chart__bar {
+.barre {
   flex: 1;
   max-width: 22%;
+  height: 0%;
   position: relative;
   display: flex;
-  height: 0%;
 }
 
-.chart__bar--textile {
-  --target-height: 50%;
-}
-
-.chart__bar--alim {
-  --target-height: 65%;
-}
-
-.chart__bar--logement {
-  --target-height: 80%;
-}
-
-.chart__bar--transport {
-  --target-height: 100%;
-}
-
-.tag {
+.etiquette {
   width: 100%;
   height: 100%;
   background-color: #fdd835;
   clip-path: polygon(20% 0%, 80% 0%, 100% 8%, 100% 100%, 0% 100%, 0% 8%);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+  justify-content: center;
   padding-top: 2rem;
-  overflow: hidden;
 }
-
-.tag__content {
+.contenu-etiquette {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 100%;
   opacity: 0;
 }
-
-.tag__hole {
+.trou-etiquette {
   width: 1.25rem;
   height: 1.25rem;
   background-color: #004d40;
   border-radius: 50%;
   margin-bottom: 1rem;
-  flex-shrink: 0;
 }
-
-.tag__rank {
-  font-family: var(--font-primary);
+.chiffre-etiquette {
+  font-family: var(--font-titre);
   font-size: 6rem;
-  font-weight: 900;
   color: #d32f2f;
-  line-height: 1;
-  margin-bottom: 0.5rem;
 }
-
-.tag__label {
-  font-family: var(--font-secondary);
+.label-etiquette {
   font-size: 2rem;
   font-weight: 800;
   color: #d32f2f;
-  text-align: center;
-  line-height: 1.2;
   margin-bottom: 1rem;
 }
-
-.tag__icon {
+.icone-etiquette {
   width: 5rem;
-  height: auto;
-  margin-bottom: auto;
 }
 
-/* ============================================================
-   SLIDE 6 - CADENCE DE TRAVAIL
-   ============================================================ */
-
-#slide-6 {
-  background-color: var(--vert);
-  color: var(--jaune);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
+/* #conditions-travail */
+#conditions-travail {
+  grid-area: 5 / 3;
+  background-color: var(--c-vert);
 }
-
-#slide-6 .slide__title {
-  margin-bottom: 12vh;
-  margin-top: 0;
-  font-family: var(--font-secondary);
+.titre-diapo-centre {
+  font-family: var(--c-jaune) !important;
   text-align: center;
-  width: 100%;
+  margin-bottom: 12vh;
+  font-size: var(--sz-titre);
 }
 
-.work-container {
+.conteneur-travail {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
   gap: 8rem;
   width: 100%;
-  max-width: 68.75rem;
-  height: auto;
+  max-width: 68rem;
 }
-
-.col-side {
+.colonne-horloge {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   gap: 4rem;
 }
-
-.col-right {
+.colonne-paiement {
+  display: flex;
+  flex-direction: column;
   padding-top: 2rem;
   gap: 6rem;
 }
 
-.clock-wrapper {
-  width: 18.75rem;
-  height: 18.75rem;
-  position: relative;
-  flex-shrink: 0;
+.wrapper-horloge {
+  width: 18rem;
+  height: 18rem;
 }
-
-#clock-svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.cents-text {
+.texte-cout {
   text-align: center;
   line-height: 1.1;
-}
-
-.cents-line-1 {
-  font-size: 2.8rem;
   font-weight: 900;
-  white-space: nowrap;
-}
-
-.cents-line-2 {
   font-size: 2.8rem;
-  font-weight: 900;
 }
-
-.text-red {
-  color: var(--rouge);
+.txt-accent {
+  color: var(--c-rouge);
   text-transform: uppercase;
 }
-
-.text-yellow {
-  color: var(--jaune);
+.txt-jaune {
+  color: var(--c-jaune);
 }
 
-.font-omnes {
-  font-family: "Omnes", var(--font-secondary), sans-serif !important;
-  font-weight: 800;
-}
-
-.font-novaro {
-  font-family: "Novaro", var(--font-primary), sans-serif;
-  font-weight: 900;
-}
-
-.hours-block {
-  text-align: left;
-}
-
-.hours-big {
+.chiffre-heures {
+  font-family: var(--font-titre);
   font-size: 9rem;
-  color: var(--rouge);
+  color: var(--c-rouge);
   line-height: 0.8;
-  white-space: nowrap;
   display: flex;
-  align-items: flex-start;
 }
-
-.hours-small {
-  font-size: 4rem;
-  color: var(--jaune);
-  margin: 0 1rem;
-  margin-top: 0.625rem;
-  line-height: 1;
-}
-
-.hours-label {
+.unite-heures {
+  font-family: var(--font-texte);
   font-size: 3.5rem;
-  color: var(--jaune);
-  text-transform: uppercase;
+  color: var(--c-jaune);
   margin-left: 1rem;
   align-self: center;
 }
-
-.hours-sub {
+.connecteur {
+  font-family: var(--font-texte);
+  font-size: 4rem;
+  color: var(--c-jaune);
+  margin: 0 1rem;
+}
+.sous-texte-heures {
   font-size: 3rem;
-  color: var(--jaune);
+  color: var(--c-jaune);
   font-weight: bold;
-  margin-top: 0.5rem;
   text-align: center;
 }
 
-.coins-pile {
+.pile-pieces {
   position: relative;
-  width: 15.625rem;
-  height: 9.375rem;
+  width: 15rem;
+  height: 9rem;
 }
-
-.coin {
+.piece {
   position: absolute;
-  width: 5.625rem;
+  width: 5.6rem;
   opacity: 0;
-  filter: drop-shadow(0.125rem 0.125rem 0 rgba(0, 0, 0, 0.2));
 }
-
-.coin--1 {
+.piece-1 {
   bottom: 0;
   left: 10%;
   z-index: 5;
 }
-
-.coin--2 {
-  bottom: 0.9375rem;
+.piece-2 {
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 4;
 }
-
-.coin--3 {
-  bottom: 1.875rem;
+.piece-3 {
+  bottom: 2rem;
   left: 30%;
   z-index: 3;
 }
-
-.coin--4 {
-  bottom: 2.8125rem;
+.piece-4 {
+  bottom: 3rem;
   left: 60%;
   z-index: 2;
 }
-
-.coin--5 {
-  bottom: 0.625rem;
+.piece-5 {
+  bottom: 0.6rem;
   left: 80%;
   z-index: 1;
 }
 
-/* ============================================================
-   SLIDE 7 - 7000 LITRES D'EAU POUR UN JEAN
-   ============================================================ */
-
-#slide-7 {
-  background-color: var(--vert);
-  color: var(--jaune);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+#eau {
+  grid-area: 6 / 3;
+  background-color: var(--c-vert);
   padding-top: 15vh;
 }
-
-.water__top-text {
-  text-align: center;
+.entete-eau {
   position: relative;
   z-index: 40;
+  text-align: center;
+}
+.entete-eau h3 {
+  font-size: 3.4rem;
+  color: var(--c-jaune);
 }
 
-.water__top-text h3 {
-  font-family: "Omnes", var(--font-secondary);
-  font-size: 3.4375rem;
-  font-weight: 800;
-  color: var(--jaune);
-  line-height: 1.2;
-}
-
-.water__layer {
+.couche-eau {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 55vh;
-  transform: translateY(110%);
   pointer-events: none;
 }
-
-.water__layer--back {
+.eau-arriere {
+  height: 55vh;
+  transform: translateY(110%);
   z-index: 10;
 }
+.eau-avant {
+  height: auto;
+  z-index: 30;
+}
 
-.water__jet-container {
-  z-index: 20;
+.vague svg {
+  width: 100%;
+  display: block;
+}
+.vague-arriere {
+  width: 160%;
+  left: -30%;
+  position: absolute;
+  bottom: 0;
+  height: 110%;
+}
+.vague-avant {
+  width: 160%;
+  left: -30%;
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+}
+
+.bloc-fond {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.eau-fond-arriere {
+  height: 20%;
+  background-color: #151c66;
+}
+.eau-fond-avant {
+  height: 10%;
+  background-color: #0b167d;
+}
+
+.conteneur-jet {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 5rem;
   height: 100%;
+  z-index: 20;
   pointer-events: none;
 }
-
-.water__layer--front {
-  z-index: 30;
-}
-
-.water__jet {
+.jet-eau {
   width: 100%;
   height: 0%;
   background-color: #0b167d;
-  border-bottom-left-radius: 1.25rem;
-  border-bottom-right-radius: 1.25rem;
+  border-radius: 0 0 1.2rem 1.2rem;
 }
 
-.water__wave {
-  position: absolute;
-  bottom: 0;
-  width: 160%;
-  left: -30%;
-  height: 100%;
-}
-
-.water__wave svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.water__wave--back {
-  height: 110%;
-  opacity: 1;
-}
-
-.water__block {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0.625rem;
-}
-
-.water__block--back {
-  background-color: #151c66;
-  height: 20%;
-}
-
-.water__block--front {
-  background-color: #0b167d;
-  height: 10%;
-}
-
-.water__bottom-text {
+.titre-eau {
   position: absolute;
   bottom: 20%;
   width: 100%;
   text-align: center;
-  font-family: "Novaro", var(--font-primary);
-  font-size: 9.375rem;
-  color: var(--jaune);
+  font-family: var(--font-titre);
+  font-size: 9rem;
+  color: var(--c-jaune);
   z-index: 35;
-  line-height: 1;
   opacity: 0;
 }
 
-/* ============================================================
-   SLIDE 8 - RANA PLAZA
-   ============================================================ */
-
-#slide-8 {
-  background-color: var(--vert);
-  color: var(--jaune);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+/* #rana-plaza */
+#rana-plaza {
+  grid-area: 7 / 3;
+  background-color: var(--c-vert);
   padding: 0 5vw;
 }
-
-.rana__header {
+.entete-tragedie {
   width: 100%;
   max-width: 75rem;
-  text-align: left;
   margin-bottom: 2rem;
   opacity: 0;
+  text-align: left;
 }
-
-.rana__header h3 {
-  font-family: "Omnes", var(--font-secondary);
-  font-weight: 800;
+.entete-tragedie h3 {
   font-size: 3rem;
-  color: var(--jaune);
-  line-height: 1.2;
-  margin: 0;
+  color: var(--c-jaune);
 }
 
-.rana__content {
+.contenu-tragedie {
   display: flex;
-  flex-direction: row;
   align-items: center;
   width: 100%;
   max-width: 75rem;
   gap: 5rem;
 }
-
-.rana__col-left {
+.visuel-immeuble {
   flex: 0 0 40%;
-  display: flex;
-  justify-content: flex-start;
 }
-
-.building__svg {
+.svg-batiment {
   width: 100%;
-  max-width: 28.125rem;
-  height: auto;
-  display: block;
+  max-width: 28rem;
 }
 
-.rana__col-right {
+.stats-tragedie {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   opacity: 0;
 }
-
-.rana__stat-row {
+.ligne-stat {
   display: flex;
   align-items: baseline;
   gap: 1.5rem;
-  line-height: 1;
 }
-
-.rana__number {
+.chiffre-stat {
   font-size: 8rem;
-  color: var(--rouge);
-  white-space: nowrap;
+  color: var(--c-rouge);
+  font-family: var(--font-titre);
 }
-
-.rana__label {
+.label-stat {
   font-size: 3rem;
-  color: var(--jaune);
+  color: var(--c-jaune);
   text-transform: uppercase;
+  font-family: var(--font-texte);
 }
 
-/* ============================================================
-   SLIDE 9 - RECYCLAGE 36,4%
-   ============================================================ */
-
-#slide-9 {
+/* #recyclage */
+#recyclage {
+  grid-area: 8 / 3;
   background-color: #000080;
   color: #ffb6c1;
-  overflow: hidden;
 }
-
-.recycling {
+.zone-recyclage {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1091,7 +793,7 @@ html, body {
   position: relative;
 }
 
-.recycling__falling {
+.pluie-recyclage {
   position: absolute;
   top: 0;
   left: 0;
@@ -1100,15 +802,14 @@ html, body {
   pointer-events: none;
   z-index: 1;
 }
-
-.recycling__item {
+.objet-recyclage {
   position: absolute;
-  width: 5.625rem;
+  width: 5.6rem;
   left: 50%;
   opacity: 0;
 }
 
-.bins {
+.bacs-recyclage {
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -1119,10 +820,47 @@ html, body {
   position: relative;
   z-index: 10;
   opacity: 0;
-  transform: translateY(12.5rem);
+  transform: translateY(12rem);
+}
+.bac {
+  background: #ffb6c1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 0.6rem 2.5rem rgba(0, 0, 0, 0.4);
+  height: 100%;
+}
+/* Cercles décoratifs des bacs */
+.bac::before,
+.bac::after {
+  content: "";
+  position: absolute;
+  bottom: -1.8rem;
+  width: 3.7rem;
+  height: 3.7rem;
+  background-color: var(--c-rouge);
+  border: 0.3rem solid var(--c-rouge);
+  border-radius: 50%;
+  z-index: -1;
+}
+.bac::before {
+  left: 15%;
+}
+.bac::after {
+  right: 15%;
 }
 
-.bin-group {
+.bac-gauche {
+  flex: 1;
+}
+.logo-bac {
+  width: 40%;
+  max-width: 15rem;
+  fill: var(--c-rouge);
+}
+
+.groupe-bac-droit {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -1130,282 +868,171 @@ html, body {
   height: 100%;
   position: relative;
 }
-
-.bin-floating-number {
-  font-family: "Novaro", var(--font-primary);
-  font-size: 18.75rem;
-  color: var(--rouge);
+.bac-droit {
+  width: 100%;
+  height: 100%;
+}
+.chiffre-flottant {
+  font-family: var(--font-titre);
+  font-size: 18rem;
+  color: var(--c-rouge);
   line-height: 0.8;
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
   position: absolute;
   bottom: 100%;
   left: 0;
   width: 100%;
-  padding-bottom: 2.5rem;
-  z-index: 20;
-  pointer-events: none;
-}
-
-.percent-symbol {
-  font-size: 3.4375rem;
-  margin-left: 0.9375rem;
-  color: #ffb6c1;
-}
-
-.bin {
-  background: #ffb6c1;
-  border-radius: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: visible;
-  box-shadow: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.4);
-  height: 100%;
-}
-
-.bin::before,
-.bin::after {
-  content: "";
-  position: absolute;
-  bottom: -1.875rem;
-  width: 3.75rem;
-  height: 3.75rem;
-  background-color: var(--rouge);
-  border: 0.375rem solid var(--rouge);
-  border-radius: 50%;
-  box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.5);
-  z-index: -1;
-}
-
-.bin::before {
-  left: 15%;
-}
-
-.bin::after {
-  right: 15%;
-}
-
-.bin--left {
-  flex: 1;
-}
-
-.bin--right {
-  width: 100%;
-  height: 100%;
-}
-
-.bin__logo {
-  width: 40%;
-  max-width: 15.625rem;
-  fill: var(--rouge);
-}
-
-.bin__content {
   text-align: center;
-  color: var(--rouge);
+  padding-bottom: 2.5rem;
+}
+.symbole-pourcent-rose {
+  font-size: 3.4rem;
+  color: #ffb6c1;
+  font-family: var(--font-texte);
+}
+.contenu-bac {
   padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  text-align: center;
+  color: var(--c-rouge);
 }
-
-.bin__content p {
-  font-family: "Omnes", var(--font-secondary);
-  font-size: 3.4375rem;
-  font-weight: 800;
+.contenu-bac p {
+  font-size: 3.4rem;
   line-height: 1.1;
-  margin: 0;
 }
 
-/* ============================================================
-   SLIDE 10 - AFRIQUE ET GHANA
-   ============================================================ */
-
-#slide-10 {
+/* #afrique */
+#afrique {
+  grid-area: 9 / 3;
   background-color: #000080;
   color: #ffb6c1;
   display: flex;
 }
-
-.afrique {
+.contenu-mixte {
   display: flex;
   width: 100%;
   height: 100%;
   align-items: center;
 }
-
-.afrique__content {
+.colonne-info-afrique {
   width: 50%;
+  padding-right: 5rem;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center; 
-  text-align: center;
-  padding-right: 5rem;
+  align-items: center;
+}
+.colonne-carte {
+  width: 50%;
+  padding-left: 2rem;
+}
+.carte-afrique {
+  width: 100%;
+  max-width: 35rem;
 }
 
-.afrique__block {
+.bloc-info {
   opacity: 0;
-  margin-bottom: 5rem;
   width: 100%;
 }
-
-.inline-baseline {
+.bloc-1 {
+  margin-bottom: 5rem;
+}
+.texte-geant {
+  font-family: var(--font-titre);
+  font-size: 12.5rem;
+  line-height: 0.8;
+}
+.texte-geant.petit {
+  font-size: 12.5rem;
+  color: var(--c-rouge);
+}
+.texte-legende {
+  font-family: var(--font-texte);
+  font-size: 3.4rem;
+  line-height: 1.1;
+  margin-top: 1rem;
+}
+.ligne-alignee {
   display: flex;
   align-items: baseline;
   justify-content: center;
   gap: 1rem;
 }
-
-.afrique__visual {
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 2rem;
+.sans-marge {
+  margin: 0;
 }
-
-.map-svg {
-  width: 100%;
-  max-width: 35rem;
-  height: auto;
-}
-
-.map-main, .map-ghana {
+.carte-continent,
+.carte-pays-ghana {
   opacity: 0;
 }
 
-.afrique__big-text {
-  font-family: "Novaro", var(--font-primary);
-  font-size: 12.5rem;
-  font-weight: 900;
-  line-height: 0.8;
-  margin: 0;
-  display: inline-block; 
+/* #made-in-france */
+#made-in-france {
+  grid-area: 9 / 4;
+  background-color: var(--c-blanc);
 }
-
-.afrique__small-text {
-  font-family: "Omnes", var(--font-secondary);
-  font-size: 3.43rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin: 0;
-  margin-top: 1rem;
-}
-
-.no-margin {
-  margin: 0;
-}
-
-.text-orange {
-  color: var(--rouge);
-}
-
-/* ============================================================
-   SLIDE 11 - USINE (VERSION XXL)
-   ============================================================ */
-#slide-11 {
-  background-color: #ffffff;
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-  grid-area: 9 / 4; 
-}
-
-.factory-container {
+.conteneur-usine {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.factory-visual {
+.visuel-lottie {
   width: 60%;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end; 
-  position: relative;
-  z-index: 1; 
+  justify-content: flex-end;
 }
-
-.factory-visual dotlottie-wc {
+.visuel-lottie dotlottie-wc {
   width: 100%;
   height: auto;
-  max-height: none; 
-  transform: scale(1.5) translateX(10%); 
-  transform-origin: center center;
+  transform: scale(1.5) translateX(10%);
 }
 
-.factory-content {
+.info-usine {
   width: 40%;
   text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding-left: 0; 
-  position: relative;
-  z-index: 10; 
+  opacity: 0;
+  transform: translateX(100px);
 }
-
-.factory-number {
-  font-family: "Novaro", var(--font-primary);
-  font-size: 15rem; 
-  color: #151C66;
+.chiffre-usine {
+  font-family: var(--font-titre);
+  font-size: 15rem;
+  color: #151c66;
   line-height: 0.8;
-  margin-bottom: 0rem;
-  /* Ajout pour gérer l'alignement du % */
   display: flex;
-  align-items: flex-start; 
+  align-items: flex-start;
 }
-
-/* Nouveau style pour le pourcentage */
-.factory-percent {
-  font-size: 2rem; 
+.pourcent-jaune {
+  font-size: 2rem;
+  color: var(--c-jaune);
   margin-left: 0.5rem;
   margin-top: 1.5rem;
-  color: var(--jaune); 
 }
-
-.factory-text-block {
-  font-family: "Omnes", var(--font-secondary);
-  color: #151C66;
-  padding-left: 1rem; 
+.texte-usine {
+  color: #151c66;
+  padding-left: 1rem;
 }
-
-.factory-subtitle {
+.sous-titre-usine {
   font-size: 1.8rem;
-  margin: 0 0 0.5rem 0;
   font-weight: 500;
+  margin-bottom: 0.5rem;
 }
-
-.factory-title {
-  font-size: 3rem; 
+.titre-usine {
+  font-size: 3rem;
   font-weight: 900;
   text-transform: uppercase;
   line-height: 1;
-  margin: 0;
 }
 
-/* ============================================================
-   SLIDE 12 - CONSEILS (CHAPEAUX)
-   ============================================================ */
-
-#slide-12 {
-  background-color: var(--rouge);
-  color: var(--jaune);
-  position: relative;
-  overflow: hidden;
+/* #conseils */
+#conseils {
+  grid-area: 8 / 4;
+  background-color: var(--c-rouge);
+  color: var(--c-jaune);
 }
-
-.hats {
+.conteneur-conseils {
   position: relative;
   width: 100%;
   height: 100%;
@@ -1414,200 +1041,99 @@ html, body {
   align-items: center;
 }
 
-.hats__header {
+.entete-conseils {
   position: absolute;
   top: 5vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   z-index: 10;
-}
-
-.hats__top-line {
-  display: flex;
-  align-items: center;
-  line-height: 1;
-  gap: 1rem;
-}
-
-.hats__number {
-  font-family: "Novaro", var(--font-primary);
-  font-size: 9.375rem; 
-  font-weight: 900;
-  color: var(--bleu);
-}
-
-.hats__label {
-  font-family: "Omnes", var(--font-secondary);
-  font-size: 2.5rem;
-  font-weight: 900;
-  color: var(--jaune);
-  text-transform: uppercase;
-  margin-top: 0.5rem;
-}
-
-.hats__subtitle {
-  font-family: "Omnes", var(--font-secondary);
-  font-size: 3rem;
-  font-weight: 900;
-  color: var(--bleu);
-  margin-top: 0;
   text-align: center;
 }
-
-.hats__stack {
-  position: relative;
-  width: 18rem; 
-  height: 35rem;
+.ligne-titre-conseil {
   display: flex;
-  flex-direction: column-reverse; 
   align-items: center;
-  justify-content: flex-start;
-  transform: translateY(5vh); 
+  justify-content: center;
+  gap: 1rem;
+}
+.chiffre-titre {
+  font-family: var(--font-titre);
+  font-size: 9rem;
+  color: var(--c-bleu);
+}
+.label-titre {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+.sous-titre-conseil {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--c-bleu);
 }
 
-.hats__item {
+.pile-chapeaux {
+  position: relative;
+  width: 18rem;
+  height: 35rem;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  transform: translateY(5vh);
+}
+.chapeau {
   width: 80%;
   height: auto;
   margin-top: -3.5rem;
   opacity: 0;
-  transform: translateY(-50px); 
+  transform: translateY(-50px);
 }
 
-.hats__tips {
+.liste-astuces {
   position: absolute;
-  top: 50%; 
-  margin-top: 5vh;
+  top: 50%;
   transform: translateY(-50%);
-  height: 28rem; 
+  height: 28rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
   width: 25vw;
+  margin-top: 5vh;
 }
-
-.hats__tips--left {
+.astuces-gauche {
   left: 5vw;
-  align-items: center;
   text-align: center;
 }
-
-.hats__tips--right {
+.astuces-droite {
   right: 5vw;
-  align-items: center;
   text-align: center;
 }
-
-.hats__tip {
-  font-family: "Omnes", var(--font-secondary);
-  font-size: 2.2rem; 
+.astuce {
+  font-size: 2.2rem;
   font-weight: 900;
-  line-height: 1.1;
   opacity: 0;
-  margin: 0;
+}
+.astuce-jaune {
+  color: var(--c-jaune);
+}
+.astuce-bleue {
+  color: var(--c-bleu);
 }
 
-.tip-yellow {
-  color: var(--jaune);
+#conclusion {
+  grid-area: 7 / 4;
+  background-color: var(--c-bleu);
+  color: var(--c-jaune);
 }
-
-.tip-blue {
-  color: var(--bleu);
-}
-
-/* ============================================================
-   SLIDE 13 - CONCLUSION
-   ============================================================ */
-
-#slide-13 {
-  background-color: var(--bleu);
-  color: var(--jaune);
-}
-
-.final {
+.bloc-final {
   opacity: 0;
   transform: scale(0.8);
+  text-align: center;
 }
-
-.final h2 {
+.bloc-final h2 {
   font-size: 5rem;
   font-weight: 900;
-  font-family: var(--font-secondary);
   margin-bottom: 1rem;
 }
-
-.final__line {
-  width: 6.25rem;
-  height: 0.3125rem;
-    font-family: var(--font-secondary);
-  background: var(--rouge);
+.ligne-separation {
+  width: 6rem;
+  height: 0.3rem;
+  background: var(--c-rouge);
   margin: 2rem auto;
-}
-
-/* ============================================================
-   POSITIONNEMENT GRILLE (SLIDES DANS LA GRILLE 8x10)
-   ============================================================ */
-
-#slide-0 { grid-area: 1 / 1; background: radial-gradient(circle at 20% 20%, var(--jaune) 0%, transparent 40%), linear-gradient(135deg, var(--jaune), var(--rouge), var(--vert), var(--bleu)); }
-#slide-1 { grid-area: 2 / 1; background-color: var(--jaune); color: var(--bleu); }
-#slide-2 { grid-area: 2 / 2; background-color: var(--jaune); color: var(--bleu); }
-#slide-3 { grid-area: 3 / 2; background-color: var(--jaune); color: var(--rouge); }
-#slide-4 { grid-area: 4 / 2; background-color: var(--jaune); color: var(--bleu); }
-
-/* Le chemin change ici : DESCENTE */
-#slide-5 { 
-  grid-area: 4 / 3; 
-  background-color: #008080; 
-  color: var(--jaune); 
-}
-
-#slide-6 { 
-  grid-area: 5 / 3; 
-  background-color: var(--vert); 
-  color: var(--jaune); 
-}
-
-#slide-7 { 
-  grid-area: 6 / 3; 
-  background-color: var(--vert); 
-  color: var(--jaune); 
-}
-
-#slide-8 { 
-  grid-area: 7 / 3; 
-  background-color: var(--vert); 
-  color: var(--jaune); 
-}
-
-#slide-9 { 
-  grid-area: 8 / 3; 
-  background-color: #000080; 
-  color: #ffb6c1; 
-}
-
-#slide-10 { 
-  grid-area: 9 / 3; 
-  background-color: #000080; 
-  color: #ffb6c1; 
-}
-
-/* VIRAGE A DROITE */
-#slide-11 { 
-  grid-area: 9 / 4; 
-  background-color: var(--rouge); 
-  color: var(--bleu); 
-}
-
-/* REMONTEE */
-#slide-12 { 
-  grid-area: 8 / 4; 
-  background-color: var(--rouge); 
-  color: var(--jaune); 
-}
-
-#slide-13 { 
-  grid-area: 7 / 4; 
-  background-color: var(--bleu); 
-  color: var(--jaune); 
 }
