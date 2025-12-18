@@ -263,7 +263,6 @@ html, body {
 }
 
 
-
 /* ============================================================
    SLIDE 1 
    ============================================================ */
@@ -314,22 +313,26 @@ html, body {
    SLIDE 2 
    ============================================================ */
 
-#slide-2 {
-  background-color: var(--jaune);
-  color: var(--bleu);
+#slide-2 .slide__number {
+  font-size: 14rem; /* Réduit (était 18rem par défaut) */
+}
+
+#slide-2 .slide__separator {
+  font-size: 8rem; /* Réduit proportionnellement */
+}
+
+/* Optionnel : Ajuster les marges du titre h2 dans la slide 2 pour gagner encore de la place */
+#slide-2 h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 1rem 0; /* Marges ajustées */
+  line-height: 1;
 }
 
 #slide-2 .slide__content {
   background: transparent;
   backdrop-filter: none;
-}
-
-#slide-2 h2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 1rem 0;
-  line-height: 1;
 }
 
 .tshirts {
@@ -455,6 +458,18 @@ html, body {
   text-align: left;
   opacity: 0;
   transform: translateX(-1.875rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wardrobe__text .slide__number {
+  line-height: 0.8; 
+  margin-bottom: 1rem;
+}
+
+.wardrobe__text .slide__desc {
+  margin-top: 0;
 }
 
 .wardrobe {
@@ -588,7 +603,7 @@ html, body {
 }
 
 .chart__suffix {
-  font-family: var(--font-primary);
+  font-family: var(--font-secondary);
   font-size: 2.5rem;
   font-weight: 900;
   color: #fdd835;
@@ -1346,6 +1361,17 @@ html, body {
   color: #151C66;
   line-height: 0.8;
   margin-bottom: 0rem;
+  /* Ajout pour gérer l'alignement du % */
+  display: flex;
+  align-items: flex-start; 
+}
+
+/* Nouveau style pour le pourcentage */
+.factory-percent {
+  font-size: 2rem; 
+  margin-left: 0.5rem;
+  margin-top: 1.5rem;
+  color: var(--jaune); 
 }
 
 .factory-text-block {
@@ -1423,7 +1449,7 @@ html, body {
 
 .hats__subtitle {
   font-family: "Omnes", var(--font-secondary);
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 900;
   color: var(--bleu);
   margin-top: 0;
