@@ -22,9 +22,9 @@
 .scroll-container {
   display: grid;
   grid-template-columns: repeat(8, 100vw);
-  grid-template-rows: repeat(8, 100vh);
+  grid-template-rows: repeat(10, 100vh);
   width: 800vw;
-  height: 800vh;
+  height: 1000vh;
   position: fixed;
   top: 0;
   left: 0;
@@ -574,6 +574,7 @@
 #slide-6 .slide__title {
   margin-bottom: 12vh;
   margin-top: 0;
+  font-family: var(--font-secondary);
   text-align: center;
   width: 100%;
 }
@@ -1168,81 +1169,83 @@
    ============================================================ */
 
 #slide-11 {
-  background-color: var(--rouge);
+  background-color: #ffffff;
   position: relative;
   overflow: hidden;
   padding: 0;
+  /* On s'assure que le slide 11 est bien placé dans la grille */
+  grid-area: 9 / 4; 
 }
 
 .factory-container {
   width: 100%;
   height: 100%;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .factory-visual {
-  position: absolute;
-  bottom: 20%; 
-  left: 10%;
-  width: 35vw;
-  max-height: 80vh;
+  /* On augmente la largeur du conteneur de l'image à 60% */
+  width: 60%;
+  height: 100%;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: flex-end; /* Pousse l'élément vers le texte */
+  position: relative;
+  z-index: 1; /* Reste derrière le texte si besoin, ou devant selon l'effet */
 }
 
-.factory-full-svg {
+/* Le composant Lottie */
+.factory-visual dotlottie-wc {
   width: 100%;
   height: auto;
-  overflow: visible; 
-}
-
-#smoke-group circle,
-#smoke-group ellipse {
-  opacity: 0;
-  transform-box: fill-box;
-  transform-origin: center;
+  /* On retire la limite de hauteur pour qu'il puisse grossir */
+  max-height: none; 
+  /* Le scale permet de zoomer artificiellement l'usine pour la rendre "huge" */
+  transform: scale(1.5) translateX(10%); 
+  transform-origin: center center;
 }
 
 .factory-content {
-  position: absolute;
-  top: 20%;  
-  right: 10%; 
-  width: 45vw; 
-  text-align: right;
+  /* Le texte prend le reste de la place (40%) */
+  width: 40%;
+  text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: flex-end; 
-  opacity: 0;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 0; /* On réduit le padding pour rapprocher le texte */
+  position: relative;
+  z-index: 10; /* Le texte passe par-dessus l'illustration si elle déborde */
 }
 
-.factory-percent {
-  display: flex;
-  align-items: baseline;
+.factory-number {
+  font-family: "Novaro", var(--font-primary);
+  /* On grossit encore le chiffre */
+  font-size: 15rem; 
+  color: #151C66;
   line-height: 0.8;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
 }
 
-.number-big {
-  font-family: "Novaro", var(--font-primary);
-  font-size: 9.375rem; 
-  color: #151C66;
-  font-weight: 900;
-}
-
-.percent-symbol {
-  font-family: "Novaro", var(--font-primary);
-  font-size: 3rem; 
-  color: #FBD236;
-  margin-left: 1rem;
-}
-
-.factory-desc {
+.factory-text-block {
   font-family: "Omnes", var(--font-secondary);
-  font-size: 2.2rem;
-  font-weight: 900;
   color: #151C66;
+  padding-left: 1rem; /* Léger décalage pour aligner optiquement avec le chiffre */
+}
+
+.factory-subtitle {
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.factory-title {
+  font-size: 3rem; /* Titre plus gros */
+  font-weight: 900;
   text-transform: uppercase;
-  line-height: 1.2;
+  line-height: 1;
   margin: 0;
 }
 
@@ -1385,12 +1388,14 @@
 .final h2 {
   font-size: 5rem;
   font-weight: 900;
+  font-family: var(--font-secondary);
   margin-bottom: 1rem;
 }
 
 .final__line {
   width: 6.25rem;
   height: 0.3125rem;
+    font-family: var(--font-secondary);
   background: var(--rouge);
   margin: 2rem auto;
 }
@@ -1399,96 +1404,65 @@
    POSITIONNEMENT GRILLE (SLIDES DANS LA GRILLE 8x8)
    ============================================================ */
 
-#slide-0 {
-  grid-area: 1 / 1;
-  background: radial-gradient(
-      circle at 20% 20%,
-      var(--jaune) 0%,
-      transparent 40%
-    ),
-    linear-gradient(
-      135deg,
-      var(--jaune),
-      var(--rouge),
-      var(--vert),
-      var(--bleu)
-    );
+#slide-0 { grid-area: 1 / 1; background: radial-gradient(circle at 20% 20%, var(--jaune) 0%, transparent 40%), linear-gradient(135deg, var(--jaune), var(--rouge), var(--vert), var(--bleu)); }
+#slide-1 { grid-area: 2 / 1; background-color: var(--jaune); color: var(--bleu); }
+#slide-2 { grid-area: 2 / 2; background-color: var(--jaune); color: var(--bleu); }
+#slide-3 { grid-area: 3 / 2; background-color: var(--jaune); color: var(--rouge); }
+#slide-4 { grid-area: 4 / 2; background-color: var(--jaune); color: var(--bleu); }
+
+/* Le chemin change ici : DESCENTE */
+#slide-5 { 
+  grid-area: 4 / 3; 
+  background-color: #008080; 
+  color: var(--jaune); 
 }
 
-#slide-1 {
-  grid-area: 2 / 1;
-  background-color: var(--jaune);
-  color: var(--bleu);
+#slide-6 { 
+  grid-area: 5 / 3; /* En dessous du 5 */
+  background-color: var(--vert); 
+  color: var(--jaune); 
 }
 
-#slide-2 {
-  grid-area: 2 / 2;
-  background-color: var(--jaune);
-  color: var(--bleu);
+#slide-7 { 
+  grid-area: 6 / 3; /* En dessous du 6 */
+  background-color: var(--vert); 
+  color: var(--jaune); 
 }
 
-#slide-3 {
-  grid-area: 3 / 2;
-  background-color: var(--jaune);
-  color: var(--rouge);
+#slide-8 { 
+  grid-area: 7 / 3; /* En dessous du 7 */
+  background-color: var(--vert); 
+  color: var(--jaune); 
 }
 
-#slide-4 {
-  grid-area: 4 / 2;
-  background-color: var(--jaune);
-  color: var(--bleu);
+#slide-9 { 
+  grid-area: 8 / 3; /* En dessous du 8 */
+  background-color: #000080; 
+  color: #ffb6c1; 
 }
 
-#slide-5 {
-  grid-area: 4 / 3;
-  background-color: #008080;
-  color: var(--jaune);
+#slide-10 { 
+  grid-area: 9 / 3; /* En dessous du 9 (AFRIQUE) */
+  background-color: #000080; 
+  color: #ffb6c1; 
 }
 
-#slide-6 {
-  grid-area: 4 / 4;
-  background-color: var(--vert);
-  color: var(--jaune);
+/* VIRAGE A DROITE */
+#slide-11 { 
+  grid-area: 9 / 4; /* A droite de l'Afrique */
+  background-color: var(--rouge); 
+  color: var(--bleu); 
 }
 
-#slide-7 {
-  grid-area: 5 / 4;
-  background-color: var(--vert);
-  color: var(--jaune);
+/* REMONTEE */
+#slide-12 { 
+  grid-area: 8 / 4; /* Au dessus de l'usine */
+  background-color: var(--rouge); 
+  color: var(--jaune); 
 }
 
-#slide-8 {
-  grid-area: 6 / 4;
-  background-color: var(--vert);
-  color: var(--jaune);
-}
-
-#slide-9 {
-  grid-area: 6 / 5;
-  background-color: #000080;
-  color: #ffb6c1;
-}
-
-#slide-10 {
-  grid-area: 6 / 6;
-  background-color: #000080;
-  color: #ffb6c1;
-}
-
-#slide-11 {
-  grid-area: 6 / 7;
-  background-color: var(--rouge);
-  color: var(--bleu);
-}
-
-#slide-12 {
-  grid-area: 5 / 7;
-  background-color: var(--rouge);
-  color: var(--jaune);
-}
-
-#slide-13 {
-  grid-area: 4 / 7;
-  background-color: var(--bleu);
-  color: var(--jaune);
+#slide-13 { 
+  grid-area: 7 / 4; /* Au dessus des chapeaux */
+  background-color: var(--bleu); 
+  color: var(--jaune); 
 }
