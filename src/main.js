@@ -81,6 +81,32 @@ tl.to(".slide__content--reveal", { opacity: 1, y: 0, duration: 0.5 });
 
 // SLIDE 3 (Sautée)
 
+tl.to(container, { 
+    x: "-100vw", 
+    y: "-200vh", 
+    ease: "none", 
+    duration: 1 
+});
+
+// Animation simple : le chiffre apparait avec un effet de rebond
+tl.fromTo(".ff-number", 
+    { scale: 0, opacity: 0 }, 
+    { scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.7)" }
+);
+tl.fromTo(".ff-label", 
+    { y: 50, opacity: 0 }, 
+    { y: 0, opacity: 1, duration: 0.5 }, 
+    "<0.2"
+);
+tl.fromTo(".ff-text", 
+    { y: -50, opacity: 0 }, 
+    { y: 0, opacity: 1, duration: 0.5 }, 
+    "<"
+);
+// Les formes rouges sur le côté peuvent bouger légèrement pour le dynamisme
+tl.fromTo(".ff-shape--left", { x: "-100%" }, { x: "0%", duration: 0.8, ease: "power2.out" }, "<");
+tl.fromTo(".ff-shape--right", { x: "100%" }, { x: "0%", duration: 0.8, ease: "power2.out" }, "<");
+
 // ============================================================
 // SLIDE 4 : ARMOIRE (BAS)
 // ============================================================
