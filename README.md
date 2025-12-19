@@ -22,4 +22,4 @@ Le site utilise le scroll horizontal et vertical, cela permet aux utilisateurs d
 
 -JavaScript : animations réalisées à l’aide de GSAP
 
-Nous avons également utilisé l’intelligence artificielle comme support pour comprendre le fonctionnement du scroll et pour aider à sa mise en place.
+Nous avons également utilisé l’intelligence artificielle comme support pour comprendre le fonctionnement du scroll/ barre de progression et pour aider à sa mise en place.
