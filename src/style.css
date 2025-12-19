@@ -224,11 +224,11 @@ p {
   opacity: 0;
   transform: scale(0.8);
 }
-.icone-bleu {
+.icone--brand {
   filter: brightness(0.8) sepia(1) hue-rotate(180deg) saturate(3);
 }
-.icone-beige {
-  filter: sepia(1) saturate(0.5);  /* permet de ajouter un filtre sur les t-shirts */
+.icone--muted {
+  filter: sepia(1) saturate(0.5);  /* filtre plus doux pour les t-shirts */
 }
 
 .chiffre-moyen {
@@ -345,7 +345,7 @@ p {
   opacity: 0;
   transform: translateX(-2rem);
 }
-.chiffre-rouge {
+.chiffre--accent {
   font-family: var(--font-titre);
   font-size: 18rem;
   font-weight: 900;
@@ -602,11 +602,11 @@ p {
   margin: 0;
   white-space: nowrap;
 }
-.txt-accent {
+.text--accent {
   color: var(--c-rouge);
   text-transform: uppercase;
 }
-.txt-jaune {
+.text--highlight {
   color: var(--c-jaune);
 }
 
@@ -723,6 +723,7 @@ p {
 }
 .eau-avant {
   height: 45%;
+  transform: translateY(110%);
   z-index: 30;
 }
 
@@ -967,7 +968,7 @@ p {
   pointer-events: none;
   z-index: 20;
 }
-.symbole-pourcent-rose {
+.symbole-pourcent--secondary {
   font-size: 3.5rem;
   color: var(--c-rose);
   font-family: var(--font-texte);
@@ -1054,7 +1055,7 @@ p {
   font-weight: 900;
 }
 
-.texte-geant.petit {
+.texte-geant.text--accent {
   color: var(--c-rouge);
 }
 .texte-legende {
@@ -1256,10 +1257,10 @@ p {
   opacity: 0;
   margin: 0;
 }
-.astuce-jaune {
+.astuce--highlight {
   color: var(--c-jaune);
 }
-.astuce-bleue {
+.astuce--primary {
   color: var(--c-bleu);
 }
 

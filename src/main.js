@@ -201,6 +201,7 @@ tl.to(container, { x: "-200vw", y: "-500vh", ease: "none", duration: 1 });
 
 tl.to(".jet-eau", { height: "100%", duration: 0.8 });
 tl.to(".eau-arriere", { y: "0%", duration: 2 });
+tl.to(".eau-avant", { y: "0%", duration: 1.5 }, "-=1.2");
 tl.to(".titre-eau", { opacity: 1, y: -20, duration: 1 });
 
 gsap.to(".vague-avant", {
