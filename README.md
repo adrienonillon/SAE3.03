@@ -14,6 +14,10 @@ Nous commençons par poser le contexte à l’aide de chiffres clés afin de mie
 Nous enchaînons avec le devenir des vêtements en fin de vie, avant de conclure par des conseils pour consommer de manière plus responsable. Chaque thème est associé à une couleur spécifique afin de faciliter la compréhension et la lecture.
 Le site utilise le scroll horizontal et vertical, cela permet aux utilisateurs d'avoir une expérience immersive en se faisant transporter par le scroll. Nous avons principalement opté pour un scroll vertical pour des raisons de lisibilité et de responsivité, mais le scroll horizontal s’est révélé plus adapté pour certains types d’animations spécifiques.
 
+### Lien Figma
+Vous trouverez sur notre figma la maquette de notre site ainsi que nos recherches.
+https://www.figma.com/design/vZyWiuZbb6U9ZmnBCiYi9X/SAE3.03?node-id=0-1&t=EPDmZ06SUOSWHzLj-1
+
 ### Frontend
 
 -HTML : structuration du contenu (utilisation de Lottie une fois pour l’animation de l’usine)
