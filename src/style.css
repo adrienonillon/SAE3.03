@@ -21,9 +21,9 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 18.75rem;
-  height: 0.375rem;
+  height: 0.4rem;
   background: rgba(255, 255, 255, 0.3);
-  border-radius: 0.625rem;
+  border-radius: 0.6rem;
   z-index: 100;
 }
 
@@ -31,7 +31,7 @@ body {
   height: 100%;
   width: 0%;
   background: var(--c-blanc);
-  border-radius: 0.625rem;
+  border-radius: 0.6rem;
 }
 
 .zone-scroll-fixe {
@@ -41,6 +41,8 @@ body {
   position: relative;
 }
 
+/* Grille globale (8 colonnes x 10 lignes) pour positionner les 13 slides
+   qui permet dans gsap de faire des translate en x/y pendant le scroll fixe. */
 .grille-diapositives {
   display: grid;
   grid-template-columns: repeat(8, 100vw);
@@ -53,9 +55,7 @@ body {
   will-change: transform;
 }
 
-/* ============================================================
-   STYLE DE BASE DIAPOSITIVE
-   ============================================================ */
+/* --- STYLE DE BASE ---*/
 
 .diapositive {
   width: 100%;
@@ -74,7 +74,7 @@ body {
   padding: 2rem;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(0.5rem);
-  border-radius: 0.9375rem;
+  border-radius: 1rem;
   text-align: center;
 }
 
@@ -86,7 +86,7 @@ body {
 
 .animation-revelation {
   opacity: 0;
-  transform: translateY(1.875rem);
+  transform: translateY(1.9rem);
   background: transparent;
   backdrop-filter: none;
 }
@@ -103,18 +103,15 @@ p {
   color: var(--c-bleu);
 }
 
-/* ============================================================
-   SLIDES SPÉCIFIQUES
-   ============================================================ */
-
 /* --- SLIDE 0 : ACCUEIL --- */
 #accueil {
   grid-area: 1 / 1;
   background: var(--c-jaune);
 }
 
+
 .vague-decor {
-  position: absolute;
+  position: absolute; /* Vague décorative, qui est derrière le contenu. */
   bottom: 0;
   left: 0;
   width: 100%;
@@ -135,7 +132,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 5%; 
+  margin-bottom: 5%;
 }
 
 .titre-principal {
@@ -155,16 +152,16 @@ p {
   font-weight: 800;
   margin-top: 2rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
-/* --- SLIDE 1 : CONSOMMATION --- */
+/* --- SLIDE 1 --- */
+
 #consommation {
   grid-area: 2 / 1;
 }
 
 .conteneur-chute {
-  position: absolute;
+  position: absolute; /*permet de faire tomber les objets devant le contenu*/
   top: 0;
   left: 0;
   width: 100%;
@@ -174,8 +171,8 @@ p {
 }
 
 .objet-chute {
-  position: absolute;
-  top: -40%; 
+  position: absolute; /*permet de faire tomber les objets devant le contenu*/
+  top: -40%;
   min-width: 6.25rem;
   z-index: 5;
 }
@@ -197,7 +194,8 @@ p {
   color: var(--c-bleu);
 }
 
-/* --- SLIDE 2 : QUALITÉ --- */
+/* --- SLIDE 2 --- */
+
 #qualite {
   grid-area: 2 / 2;
 }
@@ -230,7 +228,7 @@ p {
   filter: brightness(0.8) sepia(1) hue-rotate(180deg) saturate(3);
 }
 .icone-beige {
-  filter: sepia(1) saturate(0.5);
+  filter: sepia(1) saturate(0.5);  /* permet de ajouter un filtre sur les t-shirts */
 }
 
 .chiffre-moyen {
@@ -252,7 +250,8 @@ p {
   text-align: center;
 }
 
-/* --- SLIDE 3 : FAST FASHION --- */
+/* --- SLIDE 3 --- */
+
 #fast-fashion {
   grid-area: 3 / 2;
   color: var(--c-rouge);
@@ -268,7 +267,7 @@ p {
 }
 
 .forme-laterale {
-  position: absolute;
+  position: absolute; /* Plaque les escaliers sur les côtés. */
   top: 0;
   bottom: 0;
   width: 40%;
@@ -297,7 +296,6 @@ p {
 .label-chapeau {
   font-size: 2.5rem;
   font-weight: 900;
-  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--c-rouge);
   margin: 0;
@@ -318,7 +316,8 @@ p {
   margin: 0;
 }
 
-/* --- SLIDE 4 : ARMOIRE --- */
+/* --- SLIDE 4 --- */
+
 #armoire {
   grid-area: 4 / 2;
   display: flex;
@@ -365,12 +364,12 @@ p {
 
 .conteneur-armoire {
   position: relative;
-  width: 34.375rem;
-  height: 40.625rem;
+  width: 34.5rem;
+  height: 41rem;
   overflow: hidden;
 }
 .porte-armoire {
-  position: absolute;
+  position: absolute; /* Placer les portes de l'armoire. */
   left: 0;
   width: 100%;
   height: 50%;
@@ -384,7 +383,7 @@ p {
   bottom: 0;
 }
 .img-porte {
-  position: absolute;
+  position: absolute; /* Placer les portes de l'armoire. */
   left: 0;
   width: 100%;
   height: 200%;
@@ -400,7 +399,7 @@ p {
 }
 
 .interieur-armoire {
-  position: absolute;
+  position: absolute; /* Placer les vêtements derrière l'armoire. */
   top: 50%;
   left: 0;
   width: 100%;
@@ -413,8 +412,8 @@ p {
 }
 .vetement-interieur {
   width: 6.25rem;
-  position: absolute;
-  top: -9.375rem;
+  position: absolute; /* Placer les vêtements derrière l'armoire. */
+  top: -9.5rem;
 }
 .v-pos-1 {
   left: 32%;
@@ -429,7 +428,8 @@ p {
   transform: translateX(-50%);
 }
 
-/* --- SLIDE 5 : GRAPHIQUE --- */
+/* --- SLIDE 5 --- */
+
 #impact-env {
   grid-area: 4 / 3;
   background-color: var(--c-vert);
@@ -443,12 +443,12 @@ p {
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
-  padding: 0 2vw;
+  padding: 0 2.4rem;
 }
 .entete-graphique {
-  position: absolute;
+  position: absolute; /* Colle l'en-tete en haut à gauche sans décaler les barres. */
   top: 2%;
-  left: 5vw;
+  left: 6rem;
   display: flex;
   align-items: center;
   gap: 1.25rem;
@@ -475,7 +475,7 @@ p {
   font-size: 2.5rem;
   font-weight: 900;
   color: var(--c-jaune);
-  margin-left: 0.3125rem;
+  margin-left: 0.3rem;
 }
 
 .zone-barres {
@@ -484,7 +484,7 @@ p {
   justify-content: space-evenly;
   height: 90%;
   width: 100%;
-  gap: 1vw;
+  gap: 1.2rem;
 }
 .barre {
   flex: 1;
@@ -541,7 +541,8 @@ p {
   margin-bottom: auto;
 }
 
-/* --- SLIDE 6 : CADENCE TRAVAIL --- */
+/* --- SLIDE 6 --- */
+
 #conditions-travail {
   grid-area: 5 / 3;
   background-color: var(--c-vert);
@@ -563,7 +564,7 @@ p {
   align-items: flex-start;
   gap: 8rem;
   width: 100%;
-  max-width: 68.75rem;
+  max-width: 69rem;
 }
 .colonne-horloge {
   display: flex;
@@ -591,6 +592,15 @@ p {
   font-weight: 900;
   font-size: 2.8rem;
   font-family: var(--font-texte);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+.texte-cout p {
+  margin: 0;
+  white-space: nowrap;
 }
 .txt-accent {
   color: var(--c-rouge);
@@ -624,7 +634,7 @@ p {
   color: var(--c-jaune);
   margin: 0 1rem;
   line-height: 1;
-  margin-top: 0.625rem;
+  margin-top: 0.6rem;
 }
 .sous-texte-heures {
   font-size: 3rem;
@@ -636,12 +646,12 @@ p {
 
 .pile-pieces {
   position: relative;
-  width: 15.625rem;
-  height: 9.375rem;
+  width: 16rem;
+  height: 9rem;
 }
 .piece {
-  position: absolute;
-  width: 5.625rem;
+  position: absolute; /* Placer les pièces de la manière que je veux. */
+  width: 6rem;
   opacity: 0;
   filter: drop-shadow(0.125rem 0.125rem 0 rgba(0, 0, 0, 0.2));
 }
@@ -651,32 +661,33 @@ p {
   z-index: 5;
 }
 .piece-2 {
-  bottom: 0.9375rem;
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 4;
 }
 .piece-3 {
-  bottom: 1.875rem;
+  bottom: 2rem;
   left: 30%;
   z-index: 3;
 }
 .piece-4 {
-  bottom: 2.8125rem;
+  bottom: 3rem;
   left: 60%;
   z-index: 2;
 }
 .piece-5 {
-  bottom: 0.625rem;
+  bottom: 1rem;
   left: 80%;
   z-index: 1;
 }
 
-/* --- SLIDE 7 : EAU --- */
+/* --- SLIDE 7 --- */
+
 #eau {
   grid-area: 6 / 3;
   background-color: var(--c-vert);
-  padding-top: 15vh;
+  padding-top: 9rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -690,7 +701,7 @@ p {
   margin-bottom: 5rem;
 }
 .entete-eau h3 {
-  font-size: 3.4375rem;
+  font-size: 3.5rem;
   color: var(--c-jaune);
   font-weight: 800;
   font-family: var(--font-texte);
@@ -698,11 +709,12 @@ p {
 }
 
 .couche-eau {
-  position: absolute;
+  position: absolute; /* Calque d'eau fixé au bas pour superposer avant/arrière sans pousser le layout. */
   bottom: 0;
   left: 0;
   width: 100%;
   pointer-events: none;
+  overflow: hidden;
 }
 .eau-arriere {
   height: 55%;
@@ -710,7 +722,7 @@ p {
   z-index: 10;
 }
 .eau-avant {
-  height: auto;
+  height: 45%;
   z-index: 30;
 }
 
@@ -722,35 +734,28 @@ p {
 .vague-arriere {
   width: 160%;
   left: -30%;
-  position: absolute;
+  position: absolute; /* Calée au bas pour créer le mouvement de vague arrière. */
   bottom: 0;
   height: 110%;
+  will-change: transform;
 }
 .vague-avant {
   width: 160%;
   left: -30%;
-  position: absolute;
+  position: absolute; /* Superpose la vague avant au même point bas. */
   bottom: 0;
   height: 100%;
-}
-
-.bloc-fond {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  will-change: transform;
 }
 .eau-fond-arriere {
-  height: 20%;
-  background-color: var(--c-bleu);
+  display: none;
 }
 .eau-fond-avant {
-  height: 10%;
-  background-color: var(--c-bleu);
+  display: none;
 }
 
 .conteneur-jet {
-  position: absolute;
+  position: absolute; /* Centre la colonne de jet sur toute la hauteur sans influencer le flux. */
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -768,12 +773,12 @@ p {
 }
 
 .titre-eau {
-  position: absolute;
+  position: absolute; /* Titre centré au-dessus des vagues sans déplacer le reste. */
   bottom: 20%;
   width: 100%;
   text-align: center;
   font-family: var(--font-titre);
-  font-size: 9.375rem;
+  font-size: 9.5rem;
   color: var(--c-jaune);
   z-index: 35;
   opacity: 0;
@@ -784,11 +789,12 @@ p {
   align-items: flex-end;
 }
 
-/* --- SLIDE 8 : RANA PLAZA --- */
+/* --- SLIDE 8 --- */ 
+
 #rana-plaza {
   grid-area: 7 / 3;
   background-color: var(--c-vert);
-  padding: 0 5vw;
+  padding: 0 6rem;
 }
 .entete-tragedie {
   width: 100%;
@@ -817,7 +823,7 @@ p {
 }
 .svg-batiment {
   width: 100%;
-  max-width: 28.125rem;
+  max-width: 28rem;
   height: auto;
   display: block;
 }
@@ -875,7 +881,7 @@ p {
 }
 .objet-recyclage {
   position: absolute;
-  width: 5.625rem;
+  width: 5.75rem;
   left: 50%;
   opacity: 0;
 }
@@ -899,22 +905,22 @@ p {
   justify-content: center;
   align-items: center;
   position: relative;
-  box-shadow: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0.75rem 2.5rem rgba(0, 0, 0, 0.4);
   height: 100%;
   border-radius: 0;
 }
 .bac::before,
 .bac::after {
   content: "";
-  position: absolute;
-  bottom: -1.875rem;
+  position: absolute; /* roue des bacs */
+  bottom: -2rem;
   width: 3.75rem;
   height: 3.75rem;
   background-color: var(--c-rouge);
-  border: 0.375rem solid var(--c-rouge);
+  border: 0.4rem solid var(--c-rouge);
   border-radius: 50%;
   z-index: -1;
-  box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.5);
 }
 .bac::before {
   left: 15%;
@@ -928,7 +934,7 @@ p {
 }
 .logo-bac {
   width: 40%;
-  max-width: 15.625rem;
+  max-width: 15.7rem;
   fill: var(--c-rouge);
 }
 
@@ -949,7 +955,7 @@ p {
   font-size: 18.75rem;
   color: var(--c-rouge);
   line-height: 0.8;
-  position: absolute;
+  position: absolute; /*positionnée les chiffres au-dessus du bac droit*/
   bottom: 100%;
   left: 0;
   width: 100%;
@@ -962,10 +968,10 @@ p {
   z-index: 20;
 }
 .symbole-pourcent-rose {
-  font-size: 3.4375rem;
+  font-size: 3.5rem;
   color: var(--c-rose);
   font-family: var(--font-texte);
-  margin-left: 0.9375rem;
+  margin-left: 1rem;
 }
 .contenu-bac {
   padding: 3rem;
@@ -978,7 +984,7 @@ p {
   height: 100%;
 }
 .contenu-bac p {
-  font-size: 3.4375rem;
+  font-size: 3.5rem;
   line-height: 1.1;
   margin: 0;
   font-family: var(--font-texte);
@@ -1019,7 +1025,7 @@ p {
   max-width: 50%;
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   padding-left: 2rem;
   box-sizing: border-box;
 }
@@ -1028,7 +1034,7 @@ p {
   width: 100%;
   height: auto;
   max-width: 35rem;
-  min-width: 20rem; 
+  min-width: 20rem;
   display: block;
 }
 
@@ -1041,16 +1047,11 @@ p {
 }
 .texte-geant {
   font-family: var(--font-titre);
-  font-size: 10vw;
+  font-size: 12rem;
   line-height: 0.8;
   margin: 0;
   display: inline-block;
   font-weight: 900;
-}
-@media (min-width: 1200px) {
-  .texte-geant {
-    font-size: 12.5rem;
-  }
 }
 
 .texte-geant.petit {
@@ -1066,11 +1067,6 @@ p {
   font-weight: 800;
 }
 
-@media (max-width: 1400px) {
-  .texte-legende {
-    font-size: 2rem;
-  }
-}
 
 .ligne-alignee {
   display: flex;
@@ -1090,7 +1086,7 @@ p {
   opacity: 0;
 }
 
-/* --- SLIDE 11 : USINE --- */
+/* --- SLIDE 11 --- */
 
 #made-in-france {
   grid-area: 9 / 4;
@@ -1160,7 +1156,7 @@ p {
   color: var(--c-bleu);
 }
 
-/* --- SLIDE 12 : CONSEILS --- */
+/* --- SLIDE 12 --- */
 #conseils {
   grid-area: 8 / 4;
   background-color: var(--c-rouge);
@@ -1192,7 +1188,7 @@ p {
 }
 .chiffre-titre {
   font-family: var(--font-titre);
-  font-size: 9.375rem;
+  font-size: 9.4rem;
   font-weight: 900;
   color: var(--c-bleu);
 }
@@ -1232,7 +1228,7 @@ p {
 }
 
 .liste-astuces {
-  position: absolute;
+  position: absolute; /* positionne la liste des astuces */
   top: 50%;
   margin-top: 5%;
   transform: translateY(-50%);
@@ -1240,15 +1236,15 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 25vw;
+  width: 30rem;
 }
 .astuces-gauche {
-  left: 5vw;
+  left: 6rem;
   align-items: center;
   text-align: center;
 }
 .astuces-droite {
-  right: 5vw;
+  right: 6rem;
   align-items: center;
   text-align: center;
 }
@@ -1267,7 +1263,7 @@ p {
   color: var(--c-bleu);
 }
 
-/* --- SLIDE 13 : CONCLUSION --- */
+/* --- SLIDE 13 --- */
 #conclusion {
   grid-area: 7 / 4;
   background-color: var(--c-bleu);
@@ -1286,7 +1282,7 @@ p {
 }
 .ligne-separation {
   width: 6.25rem;
-  height: 0.3125rem;
+  height: 0.4rem;
   font-family: var(--font-texte);
   background: var(--c-rouge);
   margin: 2rem auto;
